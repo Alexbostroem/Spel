@@ -19,5 +19,9 @@ void main(void)
 	laskjfojhfso
 	oashdojs
 	asgdahsj
+	
+	
+	int k = 1;
+	
 }
 

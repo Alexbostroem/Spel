@@ -14,16 +14,5 @@ __asm__ volatile(".L1: B .L1\n");				/* never return */
 void main(void)
 {
 	
-	//testar 123
-	
-	laskjfojhfso
-	oashdojs
-	asgdahsj
-	
-	
-	int k = 1;
-	
-	int katt;
-	
 }
 

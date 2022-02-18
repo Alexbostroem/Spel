@@ -23,5 +23,7 @@ void main(void)
 	
 	int k = 1;
 	
+	int katt;
+	
 }
 

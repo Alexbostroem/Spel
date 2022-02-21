@@ -132,6 +132,8 @@ monitor restart</PostConnectCommands>
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="funktioner.c"/>
+    <File Name="grafik.c"/>
     <File Name="startup.c"/>
   </VirtualDirectory>
   <VirtualDirectory Name="resources">

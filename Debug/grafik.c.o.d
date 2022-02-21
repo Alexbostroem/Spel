@@ -1,1 +1,3 @@
-Debug/grafik.c.o: grafik.c
+Debug/grafik.c.o: grafik.c define_global.h
+
+define_global.h:

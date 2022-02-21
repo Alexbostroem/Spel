@@ -5,16 +5,16 @@
 ## Debug
 ProjectName            :=spel
 ConfigurationName      :=Debug
-WorkspacePath          :=C:/Users/alexa/DAT390/MOPLABORATIONER
-ProjectPath            :=C:/Users/alexa/DAT390/MOPLABORATIONER/spel
+WorkspacePath          :=Z:/DAT390/Spel/Spel
+ProjectPath            :=Z:/DAT390/Spel
 IntermediateDirectory  :=$(ConfigurationName)
 OutDir                 := $(IntermediateDirectory)
 CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
-User                   :=alexa
-Date                   :=18/02/2022
-CodeLitePath           :=C:/cseapp/CodeLite
+User                   :=alebostr
+Date                   :=21/02/2022
+CodeLitePath           :=c:/Progs/CodeLite
 LinkerName             :=$(CodeLiteDir)/tools/gcc-arm/bin/arm-none-eabi-g++.exe
 SharedObjectLinkerName :=$(CodeLiteDir)/tools/gcc-arm/arm-none-eabi-g++.exe -shared -fPIC
 ObjectSuffix           :=.o
@@ -61,14 +61,14 @@ AS       := $(CodeLiteDir)/tools/gcc-arm/bin/arm-none-eabi-as.exe
 ##
 ## User defined environment variables
 ##
-CodeLiteDir:=C:\cseapp\CodeLite
+CodeLiteDir:=c:\Progs\CodeLite
 ARM_V6LIB:=$(CodeLiteDir)/tools/gcc-arm/arm-none-eabi/lib/thumb/v6-m/nofp
 ARM_GCC_V6LIB:=$(CodeLiteDir)/tools/gcc-arm/lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp
 ARM_M4SFPLIB:=$(CodeLiteDir)/tools/gcc-arm/arm-none-eabi/lib/thumb/v7e-m+fp/softfp
 ARM_GCC_M4SFPLIB:=$(CodeLiteDir)/tools/gcc-arm/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/softfp
 ARM_M4HFPLIB:=$(CodeLiteDir)/tools/gcc-arm/arm-none-eabi/lib/thumb/v7e-m+fp/hard
 ARM_GCC_M4HFPLIB:=$(CodeLiteDir)/tools/gcc-arm/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard
-Objects0=$(IntermediateDirectory)/startup.c$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/funktioner.c$(ObjectSuffix) $(IntermediateDirectory)/grafik.c$(ObjectSuffix) $(IntermediateDirectory)/startup.c$(ObjectSuffix) 
 
 
 
@@ -88,8 +88,8 @@ $(OutputFile): $(IntermediateDirectory)/.d $(Objects)
 
 PostBuild:
 	@echo Executing Post Build commands ...
-	C:\cseapp\CodeLite/tools/gcc-arm/bin/arm-none-eabi-objcopy -S -O srec  Debug/spel Debug/spel.s19
-	C:\cseapp\CodeLite/tools/gcc-arm/bin/arm-none-eabi-objdump -D -S Debug/spel > Debug/spel.lst
+	c:\Progs\CodeLite/tools/gcc-arm/bin/arm-none-eabi-objcopy -S -O srec  Debug/spel Debug/spel.s19
+	c:\Progs\CodeLite/tools/gcc-arm/bin/arm-none-eabi-objdump -D -S Debug/spel > Debug/spel.lst
 	@echo Done
 
 MakeIntermediateDirs:
@@ -105,9 +105,21 @@ PreBuild:
 ##
 ## Objects
 ##
+$(IntermediateDirectory)/funktioner.c$(ObjectSuffix): funktioner.c
+	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/funktioner.c$(ObjectSuffix) -MF$(IntermediateDirectory)/funktioner.c$(DependSuffix) -MM funktioner.c
+	$(CC) $(SourceSwitch) "Z:/DAT390/Spel/funktioner.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/funktioner.c$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/funktioner.c$(PreprocessSuffix): funktioner.c
+	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/funktioner.c$(PreprocessSuffix) funktioner.c
+
+$(IntermediateDirectory)/grafik.c$(ObjectSuffix): grafik.c
+	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/grafik.c$(ObjectSuffix) -MF$(IntermediateDirectory)/grafik.c$(DependSuffix) -MM grafik.c
+	$(CC) $(SourceSwitch) "Z:/DAT390/Spel/grafik.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/grafik.c$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/grafik.c$(PreprocessSuffix): grafik.c
+	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/grafik.c$(PreprocessSuffix) grafik.c
+
 $(IntermediateDirectory)/startup.c$(ObjectSuffix): startup.c
 	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/startup.c$(ObjectSuffix) -MF$(IntermediateDirectory)/startup.c$(DependSuffix) -MM startup.c
-	$(CC) $(SourceSwitch) "C:/Users/alexa/DAT390/MOPLABORATIONER/spel/startup.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/startup.c$(ObjectSuffix) $(IncludePath)
+	$(CC) $(SourceSwitch) "Z:/DAT390/Spel/startup.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/startup.c$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/startup.c$(PreprocessSuffix): startup.c
 	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/startup.c$(PreprocessSuffix) startup.c
 

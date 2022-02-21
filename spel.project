@@ -132,7 +132,9 @@ monitor restart</PostConnectCommands>
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
-    <File Name="funktioner.c"/>
+    <File Name="define_global.h"/>
+    <File Name="keypad_driver.h"/>
+    <File Name="keypad_driver.c"/>
     <File Name="grafik.c"/>
     <File Name="startup.c"/>
   </VirtualDirectory>

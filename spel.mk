@@ -5,14 +5,14 @@
 ## Debug
 ProjectName            :=spel
 ConfigurationName      :=Debug
-WorkspacePath          :=Z:/DAT390/Spel/Spel
-ProjectPath            :=Z:/DAT390/Spel
+WorkspacePath          :=C:/Users/serner/Documents/MOPLAB_skoldator
+ProjectPath            :=Z:/Kattis/Spel
 IntermediateDirectory  :=$(ConfigurationName)
 OutDir                 := $(IntermediateDirectory)
 CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
-User                   :=alebostr
+User                   :=serner
 Date                   :=21/02/2022
 CodeLitePath           :=c:/Progs/CodeLite
 LinkerName             :=$(CodeLiteDir)/tools/gcc-arm/bin/arm-none-eabi-g++.exe
@@ -68,7 +68,7 @@ ARM_M4SFPLIB:=$(CodeLiteDir)/tools/gcc-arm/arm-none-eabi/lib/thumb/v7e-m+fp/soft
 ARM_GCC_M4SFPLIB:=$(CodeLiteDir)/tools/gcc-arm/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/softfp
 ARM_M4HFPLIB:=$(CodeLiteDir)/tools/gcc-arm/arm-none-eabi/lib/thumb/v7e-m+fp/hard
 ARM_GCC_M4HFPLIB:=$(CodeLiteDir)/tools/gcc-arm/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard
-Objects0=$(IntermediateDirectory)/funktioner.c$(ObjectSuffix) $(IntermediateDirectory)/grafik.c$(ObjectSuffix) $(IntermediateDirectory)/startup.c$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/grafik.c$(ObjectSuffix) $(IntermediateDirectory)/startup.c$(ObjectSuffix) $(IntermediateDirectory)/keypad_driver.c$(ObjectSuffix) 
 
 
 
@@ -105,23 +105,23 @@ PreBuild:
 ##
 ## Objects
 ##
-$(IntermediateDirectory)/funktioner.c$(ObjectSuffix): funktioner.c
-	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/funktioner.c$(ObjectSuffix) -MF$(IntermediateDirectory)/funktioner.c$(DependSuffix) -MM funktioner.c
-	$(CC) $(SourceSwitch) "Z:/DAT390/Spel/funktioner.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/funktioner.c$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/funktioner.c$(PreprocessSuffix): funktioner.c
-	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/funktioner.c$(PreprocessSuffix) funktioner.c
-
 $(IntermediateDirectory)/grafik.c$(ObjectSuffix): grafik.c
 	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/grafik.c$(ObjectSuffix) -MF$(IntermediateDirectory)/grafik.c$(DependSuffix) -MM grafik.c
-	$(CC) $(SourceSwitch) "Z:/DAT390/Spel/grafik.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/grafik.c$(ObjectSuffix) $(IncludePath)
+	$(CC) $(SourceSwitch) "Z:/Kattis/Spel/grafik.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/grafik.c$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/grafik.c$(PreprocessSuffix): grafik.c
 	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/grafik.c$(PreprocessSuffix) grafik.c
 
 $(IntermediateDirectory)/startup.c$(ObjectSuffix): startup.c
 	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/startup.c$(ObjectSuffix) -MF$(IntermediateDirectory)/startup.c$(DependSuffix) -MM startup.c
-	$(CC) $(SourceSwitch) "Z:/DAT390/Spel/startup.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/startup.c$(ObjectSuffix) $(IncludePath)
+	$(CC) $(SourceSwitch) "Z:/Kattis/Spel/startup.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/startup.c$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/startup.c$(PreprocessSuffix): startup.c
 	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/startup.c$(PreprocessSuffix) startup.c
+
+$(IntermediateDirectory)/keypad_driver.c$(ObjectSuffix): keypad_driver.c
+	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/keypad_driver.c$(ObjectSuffix) -MF$(IntermediateDirectory)/keypad_driver.c$(DependSuffix) -MM keypad_driver.c
+	$(CC) $(SourceSwitch) "Z:/Kattis/Spel/keypad_driver.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/keypad_driver.c$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/keypad_driver.c$(PreprocessSuffix): keypad_driver.c
+	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/keypad_driver.c$(PreprocessSuffix) keypad_driver.c
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

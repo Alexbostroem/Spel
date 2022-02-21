@@ -11,6 +11,8 @@ __asm__ volatile(" BL main\n");					/* call main */
 __asm__ volatile(".L1: B .L1\n");				/* never return */
 }
 
+#include "define_global.h"
+
 void main(void)
 {
 	

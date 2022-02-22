@@ -288,6 +288,16 @@
 		}
 	};
 	
+	GEOMETRY damsugare =
+	
+	{
+	50,
+	24,10
+	{
+	
+	}
+    }
+	
 	OBJECT cat =
 	{
 		

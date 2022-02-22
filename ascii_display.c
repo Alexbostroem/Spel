@@ -5,10 +5,6 @@
 #include "define_global.h"
 #define SIMULATOR
 
-void init_app(void) {
-    *GPIO_E_MODER = 0x55555555;    // Sätt portE pin 0-15 som utgångar
-}    
-
 void delay_250ns( void ) {
 /* SystemCoreClock = 168000000 */
     *STK_CTRL = 0;
@@ -148,26 +144,3 @@ void ascii_gotoxy(int x, int y) {    // y = row , x = cols
     ascii_write_cmd((0x80 | adress));
 }
 
-int main(void)
-{    /*
-    char *s;
-    char test1[] = "Alfanumerisk ";
-    char test2[] = "Display - test";
-    
-    init_app();
-    ascii_init();
-    ascii_gotoxy(1,1);
-    s = test1;
-    
-    while (*s) {
-   	 ascii_write_char(*s++);
-    }
-    ascii_gotoxy(1,2);
-    s = test2;
-    while (*s) {
-   	 ascii_write_char(*s++);
-    }
-    
-    return 0;
-     */
-}

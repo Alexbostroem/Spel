@@ -1,1 +1,1 @@
-Debug/funktioner.c.o Debug/grafik.c.o Debug/startup.c.o   
+Debug/graphic_driver.c.o Debug/startup.c.o Debug/ascii_display.c.o Debug/keypad_driver.c.o Debug/grafik.c.o   

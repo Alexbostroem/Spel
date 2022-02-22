@@ -25,7 +25,7 @@ __asm volatile(" BX LR\n");
 
 #include "define_global.h"
 
-
+/*
 void draw_object (POBJECT o){
 	if (o->geo_number==stand){
 		for ( int i=0; i <= (o->geo_stand->numpoints-1); i++){
@@ -71,6 +71,7 @@ void clear_object (POBJECT o){
 		}
 	}
 }
+*/
 
 static GEOMETRY cat_jump_geometry =
 	{

@@ -2,7 +2,7 @@
 
 All:
 	@echo "----------Building project:[ spel - Debug ]----------"
-	@cd "Z:\DAT390\Spel" && "$(MAKE)" -f  "spel.mk" && "$(MAKE)" -f  "spel.mk" PostBuild
+	@cd "C:\Users\nikla\Spel" && "$(MAKE)" -f  "spel.mk" && "$(MAKE)" -f  "spel.mk" PostBuild
 clean:
 	@echo "----------Cleaning project:[ spel - Debug ]----------"
-	@cd "Z:\DAT390\Spel" && "$(MAKE)" -f  "spel.mk" clean
+	@cd "C:\Users\nikla\Spel" && "$(MAKE)" -f  "spel.mk" clean

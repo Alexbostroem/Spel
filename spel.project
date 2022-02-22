@@ -132,6 +132,10 @@ monitor restart</PostConnectCommands>
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="graphic_driver.h"/>
+    <File Name="grafik.h"/>
+    <File Name="ascii_display.h"/>
+    <File Name="ascii_display.c"/>
     <File Name="graphic_driver.c"/>
     <File Name="define_global.h"/>
     <File Name="keypad_driver.h"/>

@@ -1,8 +1,15 @@
+__attribute__((naked))
+void graphic_initalize(void);
+__attribute__((naked))
+void graphic_clear_screen(void);
+__attribute__((naked))
+void graphic_pixel_set(int x, int y);
+__attribute__((naked))
+void graphic_pixel_clear(int x, int y);
 
-#include "define_global.h"
-#include "grafik.h"
+//#include "define_global.h"
 
-
+/*
 void draw_object (POBJECT o){
 	if (o->geo_number==stand){
 		for ( int i=0; i <= (o->geo_stand->numpoints-1); i++){
@@ -48,7 +55,10 @@ void clear_object (POBJECT o){
 		}
 	}
 }
+*/
 
-void move_catobject (POBJECT o){
+static GEOMETRY cat_jump_geometry; 
+static GEOMETRY cat_run_geometry;
+static GEOMETRY cat_stand_geometry;
 	
-} 
+OBJECT cat;

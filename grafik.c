@@ -1,27 +1,3 @@
-__attribute__((naked))
-void graphic_initalize(void)
-{
-__asm volatile(" .HWORD 0xDFF0\n");	
-__asm volatile(" BX LR\n");		
-}
-__attribute__((naked))
-void graphic_clear_screen(void)
-{
-__asm volatile(" .HWORD 0xDFF1\n");	
-__asm volatile(" BX LR\n");		
-}
-__attribute__((naked))
-void graphic_pixel_set(int x, int y)
-{
-__asm volatile(" .HWORD 0xDFF2\n");	
-__asm volatile(" BX LR\n");		
-}
-__attribute__((naked))
-void graphic_pixel_clear(int x, int y)
-{
-__asm volatile(" .HWORD 0xDFF3\n");	
-__asm volatile(" BX LR\n");		
-}
 
 #include "define_global.h"
 #include "grafik.h"
@@ -279,6 +255,39 @@ __asm volatile(" BX LR\n");
 		}
 	};
 	
+	GEOMETRY bird_run_geometry =
+	{
+		53,
+		24,10,
+		{
+		{0,8},
+		{1,7},{1,8},
+		{2,6},{2,9},
+		{3,5},{3,7},{3,9},
+		{4,5},{4,9},
+		{5,5},{5,9},
+		{6,6},{6,9},
+		{7,6},{7,10},
+		{8,5},{8,10},
+		{9,4},{9,5},{9,11},
+		{10,3},{10,5},{10,12},
+		{11,2},{11,5},{11,13},
+		{12,1},{12,5},{12,14},{12,8},
+		{13,0},{13,1},{13,2},{13,3},{13,4},{13,5},{13,9},{13,10},{13,11},{13,12},{13,13},{13,14},
+		
+		{14,3},{14,9},
+		{15,3},{15,9},{15,10},
+		{16,4},{16,8},{16,9},
+		{17,5},{17,6},{17,7},{17,8},
+		{18,7},
+		{19,7},
+		{20,6},
+		{21,5},{21,4},
+		{22,3},
+		{23,3},
+		}
+	};
+	
 	OBJECT cat =
 	{
 		
@@ -300,6 +309,22 @@ __asm volatile(" BX LR\n");
 		
 		&mouse_stand_geometry,
 		&mouse_run_geometry,
+		&cat_jump_geometry,
+		&cat_duck_geometry,
+		0,
+		-3,0,
+		129,30,
+		draw_object,
+		clear_object,
+		move_mouseobject,
+		set_object_speed,
+	};
+	
+	OBJECT bird =
+	{
+		
+		&cat_stand_geometry,
+		&cat_run_geometry,
 		&cat_jump_geometry,
 		&cat_duck_geometry,
 		0,

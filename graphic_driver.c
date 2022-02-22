@@ -1,6 +1,5 @@
 
 #include "define_global.h"
-#include "grafik.h"
 __attribute__((naked))
 void graphic_clear_screen(void)
 {
@@ -73,6 +72,17 @@ void move_catobject (POBJECT o){
 	clear_object(o);
 	o->geo_number=run;
 	draw_object(o);
+	clear_object(o);
+	o->geo_number=stand;
+	draw_object(o);
+} 
+
+void move_catobject (POBJECT o){
+	
+	clear_object(o);
+	o->geo_number=run;
+	draw_object(o);
+	o->posx = (o->posx + o->dirx);
 	clear_object(o);
 	o->geo_number=stand;
 	draw_object(o);

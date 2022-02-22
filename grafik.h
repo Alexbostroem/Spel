@@ -7,12 +7,12 @@ void graphic_pixel_set(int x, int y);
 __attribute__((naked))
 void graphic_pixel_clear(int x, int y);
 
-extern struct Obj;
-extern struct GEOMETRY;
-extern struct POINT;
+typedef struct Obj OBJECT, *POBJECT;
+typedef struct GEOMETRY GEOMETRY,*PGEOMETRY;
+typedef struct POINT POINT,*PPOINT;
 
-extern struct GEOMETRY cat_jump_geometry; 
-extern struct GEOMETRY cat_run_geometry;
-extern struct GEOMETRY cat_stand_geometry;
+extern GEOMETRY cat_jump_geometry; 
+extern GEOMETRY cat_run_geometry;
+extern GEOMETRY cat_stand_geometry;
 	
-extern struct OBJECT cat;
+extern OBJECT cat;

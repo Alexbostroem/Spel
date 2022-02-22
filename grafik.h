@@ -16,3 +16,4 @@ extern struct GEOMETRY cat_run_geometry;
 extern struct GEOMETRY cat_stand_geometry;
 	
 extern struct OBJECT cat;
+extern struct OBJECT mouse;

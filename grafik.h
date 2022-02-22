@@ -7,58 +7,43 @@ void graphic_pixel_set(int x, int y);
 __attribute__((naked))
 void graphic_pixel_clear(int x, int y);
 
-//#include "define_global.h"
+//STRUCTS
+typedef struct POINT{
+	char x,y;
+} POINT,*PPOINT;
 
-/*
-void draw_object (POBJECT o){
-	if (o->geo_number==stand){
-		for ( int i=0; i <= (o->geo_stand->numpoints-1); i++){
-		graphic_pixel_set( (o->geo_stand->px[i].x + o->posx), (o->geo_stand->px[i].y + o->posy));
-		}
-	}
-	else if (o->geo_number==run){
-		for ( int i=0; i <= (o->geo_run->numpoints-1); i++){
-		graphic_pixel_set( (o->geo_run->px[i].x + o->posx), (o->geo_run->px[i].y + o->posy));
-		}
-	}
-	else if (o->geo_number==jump){
-		for ( int i=0; i <= (o->geo_jump->numpoints-1); i++){
-		graphic_pixel_set( (o->geo_jump->px[i].x + o->posx), (o->geo_jump->px[i].y + o->posy));
-		}
-	}
-	else if (o->geo_number==duck){
-		for ( int i=0; i <= (o->geo_duck->numpoints-1); i++){
-		graphic_pixel_set( (o->geo_duck->px[i].x + o->posx), (o->geo_duck->px[i].y + o->posy));
-		}
-	}
-}
+typedef struct GEOMETRY
+{
+	int numpoints;
+	int sizex;
+	int sizey;
+	POINT px [MAX_POINTS];	
+}GEOMETRY,*PGEOMETRY;
 
-void clear_object (POBJECT o){
-	if (o->geo_number==stand){
-		for ( int i=0; i <= (o->geo_stand->numpoints-1); i++){
-		graphic_pixel_clear( (o->geo_stand->px[i].x + o->posx), (o->geo_stand->px[i].y + o->posy));
-		}
-	}
-	else if (o->geo_number==run){
-		for ( int i=0; i <= (o->geo_run->numpoints-1); i++){
-		graphic_pixel_clear( (o->geo_run->px[i].x + o->posx), (o->geo_run->px[i].y + o->posy));
-		}
-	}
-	else if (o->geo_number==jump){
-		for ( int i=0; i <= (o->geo_jump->numpoints-1); i++){
-		graphic_pixel_clear( (o->geo_jump->px[i].x + o->posx), (o->geo_jump->px[i].y + o->posy));
-		}
-	}
-	else if (o->geo_number==duck){
-		for ( int i=0; i <= (o->geo_duck->numpoints-1); i++){
-		graphic_pixel_clear( (o->geo_duck->px[i].x + o->posx), (o->geo_duck->px[i].y + o->posy));
-		}
-	}
-}
-*/
+typedef struct Obj{
+	PGEOMETRY geo_stand;
+	PGEOMETRY geo_run;
+	PGEOMETRY geo_jump;
+	PGEOMETRY geo_duck;
+	int geo_number;
+	int dirx, diry;
+	int posx, posy;
+	void (* draw) (struct Obj*);
+	void (* clear) (struct Obj*);
+	void (* move) (struct Obj*);
+	void (* set_speed) (struct Obj*, int, int);
+} OBJECT, *POBJECT;
 
-static GEOMETRY cat_jump_geometry; 
-static GEOMETRY cat_run_geometry;
-static GEOMETRY cat_stand_geometry;
+enum geometri_cat {stand,run,jump,duck};
+
+extern struct GEOMETRY cat_jump_geometry; 
+extern struct GEOMETRY cat_run_geometry;
+extern struct GEOMETRY cat_stand_geometry;
+extern struct GEOMETRY cat_duck_geometry;
+
+extern struct GEOMETRY mouse_run_geometry;
+extern struct GEOMETRY mouse_stand_geometry;
 	
-OBJECT cat;
+extern struct OBJECT cat;
+
+extern struct POBJECT catptr_grafik;

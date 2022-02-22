@@ -2,7 +2,36 @@ graphic_initalize	C:\Users\nikla\Spel\grafik.h	/^void graphic_initalize(void);$/
 graphic_clear_screen	C:\Users\nikla\Spel\grafik.h	/^void graphic_clear_screen(void);$/;"	prototype	line:4	signature:(void)	returns:void 
 graphic_pixel_set	C:\Users\nikla\Spel\grafik.h	/^void graphic_pixel_set(int x, int y);$/;"	prototype	line:6	signature:(int x, int y)	returns:void 
 graphic_pixel_clear	C:\Users\nikla\Spel\grafik.h	/^void graphic_pixel_clear(int x, int y);$/;"	prototype	line:8	signature:(int x, int y)	returns:void 
-cat_jump_geometry	C:\Users\nikla\Spel\grafik.h	/^static GEOMETRY cat_jump_geometry; $/;"	variable	line:60
-cat_run_geometry	C:\Users\nikla\Spel\grafik.h	/^static GEOMETRY cat_run_geometry;$/;"	variable	line:61
-cat_stand_geometry	C:\Users\nikla\Spel\grafik.h	/^static GEOMETRY cat_stand_geometry;$/;"	variable	line:62
-cat	C:\Users\nikla\Spel\grafik.h	/^OBJECT cat;/;"	variable	line:64
+POINT	C:\Users\nikla\Spel\grafik.h	/^typedef struct POINT{$/;"	struct	line:11
+x	C:\Users\nikla\Spel\grafik.h	/^	char x,y;$/;"	member	line:12	struct:POINT	access:public
+y	C:\Users\nikla\Spel\grafik.h	/^	char x,y;$/;"	member	line:12	struct:POINT	access:public
+POINT	C:\Users\nikla\Spel\grafik.h	/^typedef struct POINT{ 	char x,y; } POINT,*PPOINT; $/;"	typedef	line:13	typeref:struct:POINT
+PPOINT	C:\Users\nikla\Spel\grafik.h	/^} POINT,*PPOINT; $/;"	typedef	line:13	typeref:struct:POINT
+GEOMETRY	C:\Users\nikla\Spel\grafik.h	/^typedef struct GEOMETRY$/;"	struct	line:15
+numpoints	C:\Users\nikla\Spel\grafik.h	/^	int numpoints;$/;"	member	line:17	struct:GEOMETRY	access:public
+sizex	C:\Users\nikla\Spel\grafik.h	/^	int sizex;$/;"	member	line:18	struct:GEOMETRY	access:public
+sizey	C:\Users\nikla\Spel\grafik.h	/^	int sizey;$/;"	member	line:19	struct:GEOMETRY	access:public
+px	C:\Users\nikla\Spel\grafik.h	/^	POINT px [MAX_POINTS];	$/;"	member	line:20	struct:GEOMETRY	access:public
+GEOMETRY	C:\Users\nikla\Spel\grafik.h	/^typedef struct GEOMETRY { 	int numpoints; 	int sizex; 	int sizey; 	POINT px [MAX_POINTS];	 }GEOMETRY,*PGEOMETRY; $/;"	typedef	line:21	typeref:struct:GEOMETRY
+PGEOMETRY	C:\Users\nikla\Spel\grafik.h	/^}GEOMETRY,*PGEOMETRY; $/;"	typedef	line:21	typeref:struct:GEOMETRY
+Obj	C:\Users\nikla\Spel\grafik.h	/^typedef struct Obj{$/;"	struct	line:23
+geo_stand	C:\Users\nikla\Spel\grafik.h	/^	PGEOMETRY geo_stand;$/;"	member	line:24	struct:Obj	access:public
+geo_run	C:\Users\nikla\Spel\grafik.h	/^	PGEOMETRY geo_run;$/;"	member	line:25	struct:Obj	access:public
+geo_jump	C:\Users\nikla\Spel\grafik.h	/^	PGEOMETRY geo_jump;$/;"	member	line:26	struct:Obj	access:public
+geo_duck	C:\Users\nikla\Spel\grafik.h	/^	PGEOMETRY geo_duck;$/;"	member	line:27	struct:Obj	access:public
+geo_number	C:\Users\nikla\Spel\grafik.h	/^	int geo_number;$/;"	member	line:28	struct:Obj	access:public
+dirx	C:\Users\nikla\Spel\grafik.h	/^	int dirx, diry;$/;"	member	line:29	struct:Obj	access:public
+diry	C:\Users\nikla\Spel\grafik.h	/^	int dirx, diry;$/;"	member	line:29	struct:Obj	access:public
+posx	C:\Users\nikla\Spel\grafik.h	/^	int posx, posy;$/;"	member	line:30	struct:Obj	access:public
+posy	C:\Users\nikla\Spel\grafik.h	/^	int posx, posy;$/;"	member	line:30	struct:Obj	access:public
+draw	C:\Users\nikla\Spel\grafik.h	/^	void (* draw) (struct Obj*);$/;"	member	line:31	struct:Obj	access:public
+clear	C:\Users\nikla\Spel\grafik.h	/^	void (* clear) (struct Obj*);$/;"	member	line:32	struct:Obj	access:public
+move	C:\Users\nikla\Spel\grafik.h	/^	void (* move) (struct Obj*);$/;"	member	line:33	struct:Obj	access:public
+set_speed	C:\Users\nikla\Spel\grafik.h	/^	void (* set_speed) (struct Obj*, int, int);$/;"	member	line:34	struct:Obj	access:public
+OBJECT	C:\Users\nikla\Spel\grafik.h	/^typedef struct Obj{ 	PGEOMETRY geo_stand; 	PGEOMETRY geo_run; 	PGEOMETRY geo_jump; 	PGEOMETRY geo_duck; 	int geo_number; 	int dirx, diry; 	int posx, posy; 	void (* draw) (struct Obj*); 	void (* clear) (struct Obj*);  	void (* move) (struct Obj*); 	void (* set_speed) (struct Obj*, int, int); } OBJECT, *POBJECT; $/;"	typedef	line:35	typeref:struct:Obj
+POBJECT	C:\Users\nikla\Spel\grafik.h	/^} OBJECT, *POBJECT; $/;"	typedef	line:35	typeref:struct:Obj
+geometri_cat	C:\Users\nikla\Spel\grafik.h	/^enum geometri_cat {stand,run,jump,duck};$/;"	enum	line:37
+stand	C:\Users\nikla\Spel\grafik.h	/^enum geometri_cat {stand,run,jump,duck};$/;"	enumerator	line:37	enum:geometri_cat
+run	C:\Users\nikla\Spel\grafik.h	/^enum geometri_cat {stand,run,jump,duck};$/;"	enumerator	line:37	enum:geometri_cat
+jump	C:\Users\nikla\Spel\grafik.h	/^enum geometri_cat {stand,run,jump,duck};$/;"	enumerator	line:37	enum:geometri_cat
+duck	C:\Users\nikla\Spel\grafik.h	/^enum geometri_cat {stand,run,jump,duck};$/;"	enumerator	line:37	enum:geometri_cat

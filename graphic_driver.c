@@ -1,7 +1,27 @@
 
+// FUNKTIONER FÖR GRAFIKEN
 #include "define_global.h"
 #include "grafik.h"
+#include "graphic_driver.h"
 
+__attribute__((naked))
+void graphic_clear_screen(void)
+{
+__asm volatile(" .HWORD 0xDFF1\n");	
+__asm volatile(" BX LR\n");		
+}
+__attribute__((naked))
+void graphic_pixel_set(int x, int y)
+{
+__asm volatile(" .HWORD 0xDFF2\n");	
+__asm volatile(" BX LR\n");		
+}
+__attribute__((naked))
+void graphic_pixel_clear(int x, int y)
+{
+__asm volatile(" .HWORD 0xDFF3\n");	
+__asm volatile(" BX LR\n");		
+}
 
 void draw_object (POBJECT o){
 	if (o->geo_number==stand){
@@ -50,5 +70,55 @@ void clear_object (POBJECT o){
 }
 
 void move_catobject (POBJECT o){
-	
-} 
+
+	clear_object(o);
+	o->geo_number=run;
+	draw_object(o);
+	clear_object(o);
+	o->geo_number=stand;
+	draw_object(o);
+}
+ 
+void move_jump_catobject (POBJECT o){
+	clear_object(o);
+	o->geo_number=jump;
+	o->posy=(o->posy+o->diry);
+	if (hits_roof){
+		o->diry=0;
+	}
+	draw_object(o);
+}	
+
+void move_duck_catobject (POBJECT o){
+	clear_object(o);
+	o->geo_number=duck;
+	draw_object(o);
+}
+
+int hits_roof(POBJECT o){
+	 if (o->posx < 1){
+		return 1;
+	}
+	else {
+		return 0;
+	}
+}
+
+void set_object_speed (POBJECT o, int speedx, int speedy){
+	o->dirx=speedx;
+	o->diry=speedy;
+}
+
+int exact_objects_overlap (POBJECT o1, POBJECT o2){
+  int offset1x = o1->posx;
+  int offset1y = o1->posy;
+  int offset2x = o2->posx;
+  int offset2y = o2->posy;
+  for (int i = 0; i < o1->geo_number->numpoints; i++) {
+    for (int j = 0; j < o2->geo_number->numpoints; j++)
+      if ((offset1x + o1->geo_number->px[i].x == offset2x + o2->geo->px[j].x) &&
+        (offset1y + o1->geo_number->px[i].y == offset2y + o2->geo->px[j].y)) 
+		return 1;
+  }
+    return 0;
+}

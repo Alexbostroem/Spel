@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Workspace Name="Spel" Database="" Version="10000">
   <Project Name="spel" Path="../spel.project" Active="Yes"/>
+  <VirtualDirectory Name="Labbar">
+    <Project Name="lab_uppg3_1" Path="../../MOPLABORATIONER/lab_uppg3_1/lab_uppg3_1.project" Active="No"/>
+    <Project Name="lab_uppg3_2" Path="../../MOPLABORATIONER/lab_uppg3_2/lab_uppg3_2.project" Active="No"/>
+    <Project Name="lab_uppg3_3" Path="../../MOPLABORATIONER/lab_uppg3_3/lab_uppg3_3.project" Active="No"/>
+  </VirtualDirectory>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Debug" Selected="yes">
       <Environment/>
       <Project Name="spel" ConfigName="Debug"/>
+      <Project Name="lab_uppg3_1" ConfigName="Debug"/>
+      <Project Name="lab_uppg3_2" ConfigName="Debug"/>
+      <Project Name="lab_uppg3_3" ConfigName="Debug"/>
     </WorkspaceConfiguration>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Environment/>
       <Project Name="spel" ConfigName="Release"/>
+      <Project Name="lab_uppg3_1" ConfigName="Release"/>
+      <Project Name="lab_uppg3_2" ConfigName="Release"/>
+      <Project Name="lab_uppg3_3" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>

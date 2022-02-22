@@ -25,6 +25,7 @@ __asm volatile(" BX LR\n");
 
 #include "define_global.h"
 #include "grafik.h"
+#include "graphic_driver.h"
 
 //STRUCTS
 typedef struct POINT{
@@ -319,7 +320,7 @@ static GEOMETRY mouse_run_geometry =
 		set_object_speed,
 	};
 	
-	OBJECT cat =
+	OBJECT mouse =
 	{
 		
 		&mouse_stand_geometry,
@@ -331,6 +332,6 @@ static GEOMETRY mouse_run_geometry =
 		129,30,
 		draw_object,
 		clear_object,
-		move_catobject,
+		move_mouseobject,
 		set_object_speed,
 	};

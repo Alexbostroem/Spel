@@ -14,5 +14,7 @@ typedef struct POINT POINT,*PPOINT;
 extern GEOMETRY cat_jump_geometry; 
 extern GEOMETRY cat_run_geometry;
 extern GEOMETRY cat_stand_geometry;
-	
-extern OBJECT cat;
+
+extern struct OBJECT cat;
+extern struct OBJECT mouse;
+

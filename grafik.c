@@ -27,32 +27,7 @@ __asm volatile(" BX LR\n");
 #include "grafik.h"
 #include "graphic_driver.h"
 
-//STRUCTS
-typedef struct POINT{
-	char x,y;
-} POINT,*PPOINT;
 
-typedef struct GEOMETRY
-{
-	int numpoints;
-	int sizex;
-	int sizey;
-	POINT px [MAX_POINTS];	
-}GEOMETRY,*PGEOMETRY;
-
-typedef struct Obj{
-	PGEOMETRY geo_stand;
-	PGEOMETRY geo_run;
-	PGEOMETRY geo_jump;
-	PGEOMETRY geo_duck;
-	int geo_number;
-	int dirx, diry;
-	int posx, posy;
-	void (* draw) (struct Obj*);
-	void (* clear) (struct Obj*);
-	void (* move) (struct Obj*);
-	void (* set_speed) (struct Obj*, int, int);
-} OBJECT, *POBJECT;
 
  GEOMETRY cat_jump_geometry =
 	{
@@ -239,7 +214,7 @@ typedef struct Obj{
 		}
 	};
 	
-static GEOMETRY mouse_stand_geometry =
+ GEOMETRY mouse_stand_geometry =
 	{
 		53,
 		24,10,
@@ -272,7 +247,7 @@ static GEOMETRY mouse_stand_geometry =
 	};
 
 
-static GEOMETRY mouse_run_geometry =
+ GEOMETRY mouse_run_geometry =
 	{
 		53,
 		24,10,

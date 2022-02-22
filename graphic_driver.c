@@ -1,5 +1,7 @@
-
 #include "define_global.h"
+#include "grafik.h"
+#include "graphic_driver.h"
+
 __attribute__((naked))
 void graphic_clear_screen(void)
 {
@@ -19,10 +21,9 @@ __asm volatile(" .HWORD 0xDFF3\n");
 __asm volatile(" BX LR\n");		
 }
 
-#include "grafik.h"
 
 void draw_object (POBJECT o){
-	if (o->geo_number==stand){
+	if (o->geo_number == stand){
 		for ( int i=0; i <= (o->geo_stand->numpoints-1); i++){
 		graphic_pixel_set( (o->geo_stand->px[i].x + o->posx), (o->geo_stand->px[i].y + o->posy));
 		}
@@ -92,7 +93,7 @@ void move_mouseobject (POBJECT o){
 void move_jump_catobject (POBJECT o){
 	clear_object(o);
 	o->geo_number=jump;
-	o->posy=(o->posy+o->diry)
+	o->posy=(o->posy+o->diry);
 	if (hits_roof){
 		o->diry=0;
 	}
@@ -125,12 +126,14 @@ int exact_objects_overlap (POBJECT o1, POBJECT o2){
   int offset1y = o1->posy;
   int offset2x = o2->posx;
   int offset2y = o2->posy;
+  /*
   for (int i = 0; i < o1->geo->numpoints; i++) {
     for (int j = 0; j < o2-> geo->numpoints; j++)
       if ((offset1x + o1->geo->px[i].x == offset2x + o2->geo->px[j].x) &&
         (offset1y + o1->geo->px[i].y == offset2y + o2->geo->px[j].y)) 
 		return 1;
   }
+   * */
   return 0;
 }
 

@@ -59,8 +59,8 @@ void clear_object (POBJECT o){
 }
 */
 
-static GEOMETRY cat_jump_geometry; 
-static GEOMETRY cat_run_geometry;
-static GEOMETRY cat_stand_geometry;
+extern static GEOMETRY cat_jump_geometry; 
+extern static GEOMETRY cat_run_geometry;
+extern static GEOMETRY cat_stand_geometry;
 	
 OBJECT cat;

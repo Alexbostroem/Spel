@@ -53,7 +53,7 @@ typedef struct Obj{
 	void (* set_speed) (struct Obj*, int, int);
 } OBJECT, *POBJECT;
 
-static GEOMETRY cat_jump_geometry =
+ GEOMETRY cat_jump_geometry =
 	{
 		188,
 		43,20,
@@ -106,7 +106,7 @@ static GEOMETRY cat_jump_geometry =
 		}
 	};
 	
-static GEOMETRY cat_run_geometry =
+ GEOMETRY cat_run_geometry =
 	{
 		200,
 		43,30,
@@ -145,7 +145,7 @@ static GEOMETRY cat_run_geometry =
 		{42,18},{42,20},
 		}
 	};
-static GEOMETRY cat_stand_geometry =
+ GEOMETRY cat_stand_geometry =
 	{
 		200,
 		43,30,
@@ -187,7 +187,7 @@ static GEOMETRY cat_stand_geometry =
 		}
 	};
 	
-static GEOMETRY cat_duck_geometry =
+ GEOMETRY cat_duck_geometry =
 	{
 		188,
 		43,20,

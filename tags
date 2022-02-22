@@ -1,0 +1,8 @@
+graphic_initalize	C:\Users\nikla\Spel\grafik.h	/^void graphic_initalize(void);$/;"	prototype	line:2	signature:(void)	returns:void 
+graphic_clear_screen	C:\Users\nikla\Spel\grafik.h	/^void graphic_clear_screen(void);$/;"	prototype	line:4	signature:(void)	returns:void 
+graphic_pixel_set	C:\Users\nikla\Spel\grafik.h	/^void graphic_pixel_set(int x, int y);$/;"	prototype	line:6	signature:(int x, int y)	returns:void 
+graphic_pixel_clear	C:\Users\nikla\Spel\grafik.h	/^void graphic_pixel_clear(int x, int y);$/;"	prototype	line:8	signature:(int x, int y)	returns:void 
+cat_jump_geometry	C:\Users\nikla\Spel\grafik.h	/^static GEOMETRY cat_jump_geometry; $/;"	variable	line:60
+cat_run_geometry	C:\Users\nikla\Spel\grafik.h	/^static GEOMETRY cat_run_geometry;$/;"	variable	line:61
+cat_stand_geometry	C:\Users\nikla\Spel\grafik.h	/^static GEOMETRY cat_stand_geometry;$/;"	variable	line:62
+cat	C:\Users\nikla\Spel\grafik.h	/^OBJECT cat;/;"	variable	line:64

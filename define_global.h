@@ -32,6 +32,7 @@
 #define B_RW 0x02
 #define B_RS 0x01
 
+#define MAX_POINTS 1300
 
 //STRUCTS
 typedef struct POINT{
@@ -58,8 +59,9 @@ typedef struct Obj{
 	void (* clear) (struct Obj*);
 	void (* move) (struct Obj*);
 	void (* set_speed) (struct Obj*, int, int);
-}OBJECT, *POBJECT;
+} OBJECT, *POBJECT;
 
 
 //ENUMS
 enum geometri_cat {stand,run,jump,duck};
+

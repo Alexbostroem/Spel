@@ -5,14 +5,14 @@
 ## Debug
 ProjectName            :=spel
 ConfigurationName      :=Debug
-WorkspacePath          :=C:/Users/nikla/Spel/Spel
-ProjectPath            :=C:/Users/nikla/Spel
+WorkspacePath          :=C:/Users/alexa/DAT390/MOPLABORATIONER
+ProjectPath            :=C:/Users/alexa/DAT390/MOPLABORATIONER/spel
 IntermediateDirectory  :=$(ConfigurationName)
 OutDir                 := $(IntermediateDirectory)
 CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
-User                   :=nikla
+User                   :=alexa
 Date                   :=22/02/2022
 CodeLitePath           :=C:/cseapp/CodeLite
 LinkerName             :=$(CodeLiteDir)/tools/gcc-arm/bin/arm-none-eabi-g++.exe
@@ -68,7 +68,7 @@ ARM_M4SFPLIB:=$(CodeLiteDir)/tools/gcc-arm/arm-none-eabi/lib/thumb/v7e-m+fp/soft
 ARM_GCC_M4SFPLIB:=$(CodeLiteDir)/tools/gcc-arm/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/softfp
 ARM_M4HFPLIB:=$(CodeLiteDir)/tools/gcc-arm/arm-none-eabi/lib/thumb/v7e-m+fp/hard
 ARM_GCC_M4HFPLIB:=$(CodeLiteDir)/tools/gcc-arm/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard
-Objects0=$(IntermediateDirectory)/graphic_driver.c$(ObjectSuffix) $(IntermediateDirectory)/startup.c$(ObjectSuffix) $(IntermediateDirectory)/ascii_display.c$(ObjectSuffix) $(IntermediateDirectory)/keypad_driver.c$(ObjectSuffix) $(IntermediateDirectory)/grafik.c$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/grafik.c$(ObjectSuffix) $(IntermediateDirectory)/startup.c$(ObjectSuffix) $(IntermediateDirectory)/ascii_display.c$(ObjectSuffix) $(IntermediateDirectory)/keypad_driver.c$(ObjectSuffix) $(IntermediateDirectory)/graphic_driver.c$(ObjectSuffix) 
 
 
 
@@ -105,35 +105,35 @@ PreBuild:
 ##
 ## Objects
 ##
-$(IntermediateDirectory)/graphic_driver.c$(ObjectSuffix): graphic_driver.c
-	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/graphic_driver.c$(ObjectSuffix) -MF$(IntermediateDirectory)/graphic_driver.c$(DependSuffix) -MM graphic_driver.c
-	$(CC) $(SourceSwitch) "C:/Users/nikla/Spel/graphic_driver.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/graphic_driver.c$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/graphic_driver.c$(PreprocessSuffix): graphic_driver.c
-	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/graphic_driver.c$(PreprocessSuffix) graphic_driver.c
+$(IntermediateDirectory)/grafik.c$(ObjectSuffix): grafik.c
+	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/grafik.c$(ObjectSuffix) -MF$(IntermediateDirectory)/grafik.c$(DependSuffix) -MM grafik.c
+	$(CC) $(SourceSwitch) "C:/Users/alexa/DAT390/MOPLABORATIONER/spel/grafik.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/grafik.c$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/grafik.c$(PreprocessSuffix): grafik.c
+	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/grafik.c$(PreprocessSuffix) grafik.c
 
 $(IntermediateDirectory)/startup.c$(ObjectSuffix): startup.c
 	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/startup.c$(ObjectSuffix) -MF$(IntermediateDirectory)/startup.c$(DependSuffix) -MM startup.c
-	$(CC) $(SourceSwitch) "C:/Users/nikla/Spel/startup.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/startup.c$(ObjectSuffix) $(IncludePath)
+	$(CC) $(SourceSwitch) "C:/Users/alexa/DAT390/MOPLABORATIONER/spel/startup.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/startup.c$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/startup.c$(PreprocessSuffix): startup.c
 	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/startup.c$(PreprocessSuffix) startup.c
 
 $(IntermediateDirectory)/ascii_display.c$(ObjectSuffix): ascii_display.c
 	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/ascii_display.c$(ObjectSuffix) -MF$(IntermediateDirectory)/ascii_display.c$(DependSuffix) -MM ascii_display.c
-	$(CC) $(SourceSwitch) "C:/Users/nikla/Spel/ascii_display.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/ascii_display.c$(ObjectSuffix) $(IncludePath)
+	$(CC) $(SourceSwitch) "C:/Users/alexa/DAT390/MOPLABORATIONER/spel/ascii_display.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/ascii_display.c$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/ascii_display.c$(PreprocessSuffix): ascii_display.c
 	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/ascii_display.c$(PreprocessSuffix) ascii_display.c
 
 $(IntermediateDirectory)/keypad_driver.c$(ObjectSuffix): keypad_driver.c
 	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/keypad_driver.c$(ObjectSuffix) -MF$(IntermediateDirectory)/keypad_driver.c$(DependSuffix) -MM keypad_driver.c
-	$(CC) $(SourceSwitch) "C:/Users/nikla/Spel/keypad_driver.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/keypad_driver.c$(ObjectSuffix) $(IncludePath)
+	$(CC) $(SourceSwitch) "C:/Users/alexa/DAT390/MOPLABORATIONER/spel/keypad_driver.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/keypad_driver.c$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/keypad_driver.c$(PreprocessSuffix): keypad_driver.c
 	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/keypad_driver.c$(PreprocessSuffix) keypad_driver.c
 
-$(IntermediateDirectory)/grafik.c$(ObjectSuffix): grafik.c
-	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/grafik.c$(ObjectSuffix) -MF$(IntermediateDirectory)/grafik.c$(DependSuffix) -MM grafik.c
-	$(CC) $(SourceSwitch) "C:/Users/nikla/Spel/grafik.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/grafik.c$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/grafik.c$(PreprocessSuffix): grafik.c
-	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/grafik.c$(PreprocessSuffix) grafik.c
+$(IntermediateDirectory)/graphic_driver.c$(ObjectSuffix): graphic_driver.c
+	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/graphic_driver.c$(ObjectSuffix) -MF$(IntermediateDirectory)/graphic_driver.c$(DependSuffix) -MM graphic_driver.c
+	$(CC) $(SourceSwitch) "C:/Users/alexa/DAT390/MOPLABORATIONER/spel/graphic_driver.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/graphic_driver.c$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/graphic_driver.c$(PreprocessSuffix): graphic_driver.c
+	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/graphic_driver.c$(PreprocessSuffix) graphic_driver.c
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

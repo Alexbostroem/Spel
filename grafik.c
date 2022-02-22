@@ -24,54 +24,34 @@ __asm volatile(" BX LR\n");
 }
 
 #include "define_global.h"
+#include "grafik.h"
 
-/*
-void draw_object (POBJECT o){
-	if (o->geo_number==stand){
-		for ( int i=0; i <= (o->geo_stand->numpoints-1); i++){
-		graphic_pixel_set( (o->geo_stand->px[i].x + o->posx), (o->geo_stand->px[i].y + o->posy));
-		}
-	}
-	else if (o->geo_number==run){
-		for ( int i=0; i <= (o->geo_run->numpoints-1); i++){
-		graphic_pixel_set( (o->geo_run->px[i].x + o->posx), (o->geo_run->px[i].y + o->posy));
-		}
-	}
-	else if (o->geo_number==jump){
-		for ( int i=0; i <= (o->geo_jump->numpoints-1); i++){
-		graphic_pixel_set( (o->geo_jump->px[i].x + o->posx), (o->geo_jump->px[i].y + o->posy));
-		}
-	}
-	else if (o->geo_number==duck){
-		for ( int i=0; i <= (o->geo_duck->numpoints-1); i++){
-		graphic_pixel_set( (o->geo_duck->px[i].x + o->posx), (o->geo_duck->px[i].y + o->posy));
-		}
-	}
-}
+//STRUCTS
+typedef struct POINT{
+	char x,y;
+} POINT,*PPOINT;
 
-void clear_object (POBJECT o){
-	if (o->geo_number==stand){
-		for ( int i=0; i <= (o->geo_stand->numpoints-1); i++){
-		graphic_pixel_clear( (o->geo_stand->px[i].x + o->posx), (o->geo_stand->px[i].y + o->posy));
-		}
-	}
-	else if (o->geo_number==run){
-		for ( int i=0; i <= (o->geo_run->numpoints-1); i++){
-		graphic_pixel_clear( (o->geo_run->px[i].x + o->posx), (o->geo_run->px[i].y + o->posy));
-		}
-	}
-	else if (o->geo_number==jump){
-		for ( int i=0; i <= (o->geo_jump->numpoints-1); i++){
-		graphic_pixel_clear( (o->geo_jump->px[i].x + o->posx), (o->geo_jump->px[i].y + o->posy));
-		}
-	}
-	else if (o->geo_number==duck){
-		for ( int i=0; i <= (o->geo_duck->numpoints-1); i++){
-		graphic_pixel_clear( (o->geo_duck->px[i].x + o->posx), (o->geo_duck->px[i].y + o->posy));
-		}
-	}
-}
-*/
+typedef struct GEOMETRY
+{
+	int numpoints;
+	int sizex;
+	int sizey;
+	POINT px [MAX_POINTS];	
+}GEOMETRY,*PGEOMETRY;
+
+typedef struct Obj{
+	PGEOMETRY geo_stand;
+	PGEOMETRY geo_run;
+	PGEOMETRY geo_jump;
+	PGEOMETRY geo_duck;
+	int geo_number;
+	int dirx, diry;
+	int posx, posy;
+	void (* draw) (struct Obj*);
+	void (* clear) (struct Obj*);
+	void (* move) (struct Obj*);
+	void (* set_speed) (struct Obj*, int, int);
+} OBJECT, *POBJECT;
 
 static GEOMETRY cat_jump_geometry =
 	{
@@ -206,6 +186,60 @@ static GEOMETRY cat_stand_geometry =
 		{42,18},{42,20},
 		}
 	};
+	
+static GEOMETRY cat_duck_geometry =
+	{
+		188,
+		43,20,
+		{
+		{0,18},{0,22},
+		{1,17},{1,19},{1,21},{1,23},
+		{2,17},{2,19},{2,20},{2,22},{2,23},
+		{3,17},{3,19},{3,20},{3,22},
+		{4,17},{4,19},{4,20},{4,22},
+		{5,17},{5,19},{5,20},{5,22},
+		{6,17},{6,20},{6,22},
+		{7,7},{7,8},{7,9},{7,17},{7,19},{7,22},
+		{8,6},{8,10},{8,17},{8,19},{8,22},
+		{9,7},{9,8},{9,11},{9,17},{9,19},{9,22},
+		{10,9},{10,12},{10,17},{9,19},{9,22},
+		{11,10},{11,13},{11,14},{11,17},{11,18},{11,22},
+		{12,11},{12,15},{12,17},{12,18},{12,23},
+		{13,12},{13,15},{13,17},{13,16},{13,23},
+		{14,13},{14,23},
+		{15,14},{15,23},
+		{16,15},{16,16},{16,24},
+		{17,15},{17,24},
+		{18,15},{18,24},
+		{19,15},{19,24},
+		{20,15},{20,23},
+		{20,15},{20,23},
+		{21,15},{21,23},
+		{22,15},{22,23},
+		{23,15},{23,23},
+		{24,16},{24,23},
+		{25,16},{25,18},{25,20},{25,23},
+		{26,9},{26,10},{26,11},{26,12},{26,13},{26,14},{26,15},{26,16},{26,17},{26,18},{26,19},{26,20},{26,23},
+		{27,8},{27,18},{27,20},{27,23},
+		{28,9},{28,18},{28,20},{28,23},{28,24},
+		{29,10},{29,21},{29,24},
+		{30,11},{30,19},{30,21},{30,24},
+		{31,12},{31,16},{31,20},{31,21},{31,24},
+		{32,12},{32,18},{32,20},{32,21},{32,25},
+		{33,12},{33,18},{33,19},{33,21},{33,25},
+		{34,12},{34,18},{34,20},{34,21},{34,25},
+		{35,12},{35,16},{35,20},{35,21},{35,25},
+		{36,11},{36,19},{36,21},{36,25},
+		{37,10},{37,21},{37,22},{37,25},
+		{38,9},{38,18},{38,20},{38,22},{38,25},
+		{39,8},{39,18},{39,20},{39,23},{39,25},
+		{40,9},{40,10},{40,11},{40,12},{40,13},{40,14},{40,15},{40,16},{40,17},{40,18},{40,19},{40,20},{40,23},{40,25},{40,26},
+		{41,18},{41,20},{41,23},{41,25},{41,26},
+		{42,18},{42,20},{42,23},{42,25},{42,26},
+		{43,24},{43,25},
+		}
+	};
+	
 	
 	OBJECT cat =
 	{

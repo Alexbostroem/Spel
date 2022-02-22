@@ -6,7 +6,9 @@ __attribute__((naked))
 void graphic_pixel_set(int x, int y);
 __attribute__((naked))
 void graphic_pixel_clear(int x, int y);
-
+extern struct Obj;
+extern struct GEOMETRY;
+extern struct POINT;
 //#include "define_global.h"
 
 /*

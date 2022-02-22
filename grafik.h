@@ -1,11 +1,4 @@
-__attribute__((naked))
-void graphic_initalize(void);
-__attribute__((naked))
-void graphic_clear_screen(void);
-__attribute__((naked))
-void graphic_pixel_set(int x, int y);
-__attribute__((naked))
-void graphic_pixel_clear(int x, int y);
+
 
 //STRUCTS
 typedef struct POINT{
@@ -40,4 +33,5 @@ extern GEOMETRY cat_run_geometry;
 extern GEOMETRY cat_stand_geometry;
 
 extern OBJECT cat;
+extern OBJECT mouse;
 

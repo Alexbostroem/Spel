@@ -269,7 +269,7 @@ GEOMETRY bird_run_geometry =
 		{16,3},{16,8},
 		{17,3},{17,4},{17,5},{17,6},
 		}
-	}
+	};
 
 
 GEOMETRY bird_stand_geometry =
@@ -300,12 +300,13 @@ GEOMETRY bird_stand_geometry =
 	
  
 
-	GEOMETRY damsugare =
+GEOMETRY damsugare_geometry =
 	
 	{
 	106,
-	25,19
-	{{0,18},{0,19},
+	25,19,
+	{
+	{0,18},{0,19},
 	 {1,17},{1,19},
 	 {2,17},{2,19},
 	 {3,16},{3,19},
@@ -332,9 +333,8 @@ GEOMETRY bird_stand_geometry =
 	 {24,11},{24,17},{24,18},
 	 {25,12},{25,13},{25,14},{25,15},{25,16},
 	 
-	
-	}
-    }
+		}
+	};
 	
 	OBJECT cat =
 	{
@@ -381,5 +381,21 @@ OBJECT bird =
 		draw_object,
 		clear_object,
 		move_mouseobject,
+		set_object_speed,
+	};
+
+OBJECT damsugare =
+	{
+		
+		&damsugare_geometry,
+		&bird_run_geometry,
+		&cat_jump_geometry,
+		&cat_duck_geometry,
+		0,
+		-3,0,
+		95,40,
+		draw_object,
+		clear_object,
+		move_damsugare,
 		set_object_speed,
 	};

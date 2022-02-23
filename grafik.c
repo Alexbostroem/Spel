@@ -2,6 +2,7 @@
 #include "define_global.h"
 #include "grafik.h"
 #include "graphic_driver.h"
+#include "init.h"
 
 
 

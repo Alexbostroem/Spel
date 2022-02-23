@@ -29,24 +29,20 @@ __asm__ volatile(".L1: B .L1\n");				/* never return */
 
 void main(void)
 {
-	app_init();
+	
 	POBJECT m =&mouse;
+	POBJECT d =&damsugare;
 	POBJECT k =&cat;	
 	POBJECT b =&bird;
+	POBJECT current;
+	app_init();
+   
+	current = d;
 	
-	graphic_initialize();
-	graphic_clear_screen();
 	while(1)
 			{
-				if(b->posx > 10){
-				m->move(m);}
-				else {
-				
-				}
-				k->move(k);
-				b->move(b);
+				move_catobject(k);
 				delay_micro(200);
-				
 }
 }
 

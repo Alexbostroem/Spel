@@ -1,5 +1,4 @@
 
-
 //STRUCTS
 typedef struct POINT{
 	char x,y;

@@ -1,8 +1,28 @@
-graphic_initalize	C:\Users\nikla\Spel\grafik.h	/^void graphic_initalize(void);$/;"	prototype	line:2	signature:(void)	returns:void 
-graphic_clear_screen	C:\Users\nikla\Spel\grafik.h	/^void graphic_clear_screen(void);$/;"	prototype	line:4	signature:(void)	returns:void 
-graphic_pixel_set	C:\Users\nikla\Spel\grafik.h	/^void graphic_pixel_set(int x, int y);$/;"	prototype	line:6	signature:(int x, int y)	returns:void 
-graphic_pixel_clear	C:\Users\nikla\Spel\grafik.h	/^void graphic_pixel_clear(int x, int y);$/;"	prototype	line:8	signature:(int x, int y)	returns:void 
-cat_jump_geometry	C:\Users\nikla\Spel\grafik.h	/^static GEOMETRY cat_jump_geometry; $/;"	variable	line:60
-cat_run_geometry	C:\Users\nikla\Spel\grafik.h	/^static GEOMETRY cat_run_geometry;$/;"	variable	line:61
-cat_stand_geometry	C:\Users\nikla\Spel\grafik.h	/^static GEOMETRY cat_stand_geometry;$/;"	variable	line:62
-cat	C:\Users\nikla\Spel\grafik.h	/^OBJECT cat;/;"	variable	line:64
+POINT	Z:\Spel2\Spel\grafik.h	/^typedef struct POINT{$/;"	struct	line:4
+x	Z:\Spel2\Spel\grafik.h	/^	char x,y;$/;"	member	line:5	struct:POINT	access:public
+y	Z:\Spel2\Spel\grafik.h	/^	char x,y;$/;"	member	line:5	struct:POINT	access:public
+POINT	Z:\Spel2\Spel\grafik.h	/^typedef struct POINT{ 	char x,y; } POINT,*PPOINT; $/;"	typedef	line:6	typeref:struct:POINT
+PPOINT	Z:\Spel2\Spel\grafik.h	/^} POINT,*PPOINT; $/;"	typedef	line:6	typeref:struct:POINT
+GEOMETRY	Z:\Spel2\Spel\grafik.h	/^typedef struct GEOMETRY$/;"	struct	line:8
+numpoints	Z:\Spel2\Spel\grafik.h	/^	int numpoints;$/;"	member	line:10	struct:GEOMETRY	access:public
+sizex	Z:\Spel2\Spel\grafik.h	/^	int sizex;$/;"	member	line:11	struct:GEOMETRY	access:public
+sizey	Z:\Spel2\Spel\grafik.h	/^	int sizey;$/;"	member	line:12	struct:GEOMETRY	access:public
+px	Z:\Spel2\Spel\grafik.h	/^	POINT px [MAX_POINTS];	$/;"	member	line:13	struct:GEOMETRY	access:public
+GEOMETRY	Z:\Spel2\Spel\grafik.h	/^typedef struct GEOMETRY { 	int numpoints; 	int sizex; 	int sizey; 	POINT px [MAX_POINTS];	 }GEOMETRY,*PGEOMETRY; $/;"	typedef	line:14	typeref:struct:GEOMETRY
+PGEOMETRY	Z:\Spel2\Spel\grafik.h	/^}GEOMETRY,*PGEOMETRY; $/;"	typedef	line:14	typeref:struct:GEOMETRY
+Obj	Z:\Spel2\Spel\grafik.h	/^typedef struct Obj{$/;"	struct	line:16
+geo_stand	Z:\Spel2\Spel\grafik.h	/^	PGEOMETRY geo_stand;$/;"	member	line:17	struct:Obj	access:public
+geo_run	Z:\Spel2\Spel\grafik.h	/^	PGEOMETRY geo_run;$/;"	member	line:18	struct:Obj	access:public
+geo_jump	Z:\Spel2\Spel\grafik.h	/^	PGEOMETRY geo_jump;$/;"	member	line:19	struct:Obj	access:public
+geo_duck	Z:\Spel2\Spel\grafik.h	/^	PGEOMETRY geo_duck;$/;"	member	line:20	struct:Obj	access:public
+geo_number	Z:\Spel2\Spel\grafik.h	/^	int geo_number;$/;"	member	line:21	struct:Obj	access:public
+dirx	Z:\Spel2\Spel\grafik.h	/^	int dirx, diry;$/;"	member	line:22	struct:Obj	access:public
+diry	Z:\Spel2\Spel\grafik.h	/^	int dirx, diry;$/;"	member	line:22	struct:Obj	access:public
+posx	Z:\Spel2\Spel\grafik.h	/^	int posx, posy;$/;"	member	line:23	struct:Obj	access:public
+posy	Z:\Spel2\Spel\grafik.h	/^	int posx, posy;$/;"	member	line:23	struct:Obj	access:public
+draw	Z:\Spel2\Spel\grafik.h	/^	void (* draw) (struct Obj*);$/;"	member	line:24	struct:Obj	access:public
+clear	Z:\Spel2\Spel\grafik.h	/^	void (* clear) (struct Obj*);$/;"	member	line:25	struct:Obj	access:public
+move	Z:\Spel2\Spel\grafik.h	/^	void (* move) (struct Obj*);$/;"	member	line:26	struct:Obj	access:public
+set_speed	Z:\Spel2\Spel\grafik.h	/^	void (* set_speed) (struct Obj*, int, int);$/;"	member	line:27	struct:Obj	access:public
+OBJECT	Z:\Spel2\Spel\grafik.h	/^typedef struct Obj{ 	PGEOMETRY geo_stand; 	PGEOMETRY geo_run; 	PGEOMETRY geo_jump; 	PGEOMETRY geo_duck; 	int geo_number; 	int dirx, diry; 	int posx, posy; 	void (* draw) (struct Obj*); 	void (* clear) (struct Obj*);  	void (* move) (struct Obj*); 	void (* set_speed) (struct Obj*, int, int); } OBJECT, *POBJECT; $/;"	typedef	line:28	typeref:struct:Obj
+POBJECT	Z:\Spel2\Spel\grafik.h	/^} OBJECT, *POBJECT; $/;"	typedef	line:28	typeref:struct:Obj

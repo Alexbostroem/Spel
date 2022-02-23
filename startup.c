@@ -37,7 +37,8 @@ void main(void)
 {
 	app_init();
 	POBJECT m = &mouse;
-	POBJECT k = &cat;	
+	POBJECT k = &cat;
+	POBJECT b = &bird;
 	
 	graphic_initialize();
 	graphic_clear_screen();
@@ -46,6 +47,7 @@ void main(void)
 			{
 				m->move(m);
 				k->move(k);
+				b->move(b);
 				delay_micro(200);
 }
 }

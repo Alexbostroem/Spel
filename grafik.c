@@ -332,7 +332,7 @@
 		&cat_duck_geometry,
 		0,
 		-3,0,
-		129,30,
+		129,50,
 		draw_object,
 		clear_object,
 		move_mouseobject,
@@ -342,13 +342,13 @@
 	OBJECT bird =
 	{
 		
-		&cat_stand_geometry,
-		&cat_run_geometry,
+		&bird_stand_geometry,
+		&bird_run_geometry,
 		&cat_jump_geometry,
 		&cat_duck_geometry,
 		0,
 		-3,0,
-		129,30,
+		129,10,
 		draw_object,
 		clear_object,
 		move_mouseobject,

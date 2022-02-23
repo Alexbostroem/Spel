@@ -74,26 +74,33 @@ void clear_object (POBJECT o){
 	}
 }
 
-void move_catobject (POBJECT o){
+void move_catobject (POBJECT o){	// efter k->move(k)
 	
 	clear_object(o);
-	o->geo_number=run;
-	draw_object(o);
+	//o->geo_number=run;
+	draw_object(o);	
 	clear_object(o);
-	o->geo_number=stand;
-	draw_object(o);
+	//o->geo_number=stand;
+	draw_object(o);	
 } 
 
 void move_mouseobject (POBJECT o){
 	
 	clear_object(o);
-	o->geo_number=run;
-	draw_object(o);
-	o->posx = (o->posx + o->dirx);
-	clear_object(o);
 	o->geo_number=stand;
-	draw_object(o);
 	o->posx = (o->posx + o->dirx);
+	draw_object(o);
+	clear_object(o);
+	o->geo_number=run;
+	o->posx = (o->posx + o->dirx);
+	draw_object(o);
+} 
+
+void move_damsugare (POBJECT o){
+
+	clear_object(o);
+	o->posx = (o->posx + o->dirx);
+	draw_object(o);
 } 
 
 void move_jump_catobject (POBJECT o){
@@ -123,8 +130,8 @@ int hits_roof(POBJECT o){
 
 void set_object_speed (POBJECT o, int speedx, int speedy)
 {
-o->dirx=speedx;
-o->diry=speedy;
+	o->dirx=speedx;
+	o->diry=speedy;
 }
 
 int exact_objects_overlap (POBJECT o1, POBJECT o2){

@@ -132,6 +132,8 @@ monitor restart</PostConnectCommands>
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="init.h"/>
+    <File Name="init.c"/>
     <File Name="graphic_driver.h"/>
     <File Name="grafik.h"/>
     <File Name="ascii_display.h"/>

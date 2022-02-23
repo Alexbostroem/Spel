@@ -1,15 +1,3 @@
-init_app	Z:\Spel2\Spel\ascii_display.h	/^void init_app(void);$/;"	prototype	line:3	signature:(void)	returns:void 
-delay_250ns	Z:\Spel2\Spel\ascii_display.h	/^void delay_250ns( void );$/;"	prototype	line:5	signature:( void )	returns:void 
-delay_micro	Z:\Spel2\Spel\ascii_display.h	/^void delay_micro(unsigned int us);$/;"	prototype	line:6	signature:(unsigned int us)	returns:void 
-delay_milli	Z:\Spel2\Spel\ascii_display.h	/^void delay_milli(unsigned int ms);$/;"	prototype	line:8	signature:(unsigned int ms)	returns:void 
-ascii_ctrl_bit_set	Z:\Spel2\Spel\ascii_display.h	/^void ascii_ctrl_bit_set(unsigned char x);$/;"	prototype	line:10	signature:(unsigned char x)	returns:void 
-ascii_ctrl_bit_clear	Z:\Spel2\Spel\ascii_display.h	/^void ascii_ctrl_bit_clear(unsigned char x);$/;"	prototype	line:11	signature:(unsigned char x)	returns:void 
-ascii_write_controller	Z:\Spel2\Spel\ascii_display.h	/^void ascii_write_controller(unsigned char byte);$/;"	prototype	line:12	signature:(unsigned char byte)	returns:void 
-ascii_read_controller	Z:\Spel2\Spel\ascii_display.h	/^unsigned char ascii_read_controller(void);$/;"	prototype	line:14	signature:(void)	returns:unsigned char 
-ascii_read_status	Z:\Spel2\Spel\ascii_display.h	/^unsigned char ascii_read_status(void);$/;"	prototype	line:16	signature:(void)	returns:unsigned char 
-ascii_read_data	Z:\Spel2\Spel\ascii_display.h	/^unsigned char ascii_read_data(void);$/;"	prototype	line:17	signature:(void)	returns:unsigned char 
-ascii_write_cmd	Z:\Spel2\Spel\ascii_display.h	/^void ascii_write_cmd(unsigned char command);$/;"	prototype	line:18	signature:(unsigned char command)	returns:void 
-ascii_write_data	Z:\Spel2\Spel\ascii_display.h	/^void ascii_write_data(unsigned char data);$/;"	prototype	line:20	signature:(unsigned char data)	returns:void 
-ascii_init	Z:\Spel2\Spel\ascii_display.h	/^void ascii_init(void);$/;"	prototype	line:21	signature:(void)	returns:void 
-ascii_write_char	Z:\Spel2\Spel\ascii_display.h	/^void ascii_write_char(unsigned char c);$/;"	prototype	line:23	signature:(unsigned char c)	returns:void 
-ascii_gotoxy	Z:\Spel2\Spel\ascii_display.h	/^void ascii_gotoxy(int x, int y);$/;"	prototype	line:24	signature:(int x, int y)	returns:void 
+ActivateRow	Z:\Spel2\Spel\keypad_driver.h	/^void ActivateRow( unsigned int row );$/;"	prototype	line:6	signature:( unsigned int row )	returns:void 
+ReadColumn	Z:\Spel2\Spel\keypad_driver.h	/^int ReadColumn(void);$/;"	prototype	line:7	signature:(void)	returns:int 
+keyb_enhanced	Z:\Spel2\Spel\keypad_driver.h	/^unsigned char keyb_enhanced(void);$/;"	prototype	line:8	signature:(void)	returns:unsigned char 

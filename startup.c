@@ -24,6 +24,7 @@ __asm__ volatile(".L1: B .L1\n");				/* never return */
 #include "ascii_display.h"
 #include "grafik.h"
 #include "graphic_driver.h"
+#include "keypad_driver.h"
 
 void app_init(void) {
 	*GPIO_D_MODER &= 0x00000000;	// Nollställer bit 31-16 resten kvarstår
@@ -39,7 +40,7 @@ void main(void)
 	POBJECT m = &mouse;
 	POBJECT k = &cat;
 	POBJECT b = &bird;
-	
+	char c;
 	graphic_initialize();
 	graphic_clear_screen();
 	
@@ -48,7 +49,14 @@ void main(void)
 				m->move(m);
 				k->move(k);
 				b->move(b);
-				delay_micro(200);
+				
+				c = keyb();
+        switch(c)
+        {
+			case 2: k->geo_number = jump; k->set_speed(k,0,-2); break;
+            case 8: k->geo_number = duck; break;
+                default: break;
+		}
+		delay_micro(200);
+	}
 }
-}
-

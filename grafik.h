@@ -34,4 +34,4 @@ extern GEOMETRY cat_stand_geometry;
 
 extern OBJECT cat;
 extern OBJECT mouse;
-
+extern OBJECT bird;

@@ -30,3 +30,9 @@ git checkout namnpåbranch
 om du vill kolla branch list
 git branch
 
+
+
+-----PORTAR------
+KEYPAD -> GPIOD
+DISPLAY -> GPIOE
+

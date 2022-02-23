@@ -16,7 +16,7 @@ git checkout -b namn
 Push till branch på github
 git add fil1, fil2, ....
 git commit -m "meddelande"
-git commit -u origin namnpåbranch
+git push -u origin namnpåbranch
 
 Om uppdaterad master men inte branch
 git checkout namnpåbranch

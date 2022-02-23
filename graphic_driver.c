@@ -74,6 +74,8 @@ void clear_object (POBJECT o){
 	}
 }
 
+
+
 void move_catobject (POBJECT o){
 	
 	clear_object(o);
@@ -87,11 +89,17 @@ void move_catobject (POBJECT o){
 void move_mouseobject (POBJECT o){
 	
 	clear_object(o);
-	o->geo_number=run;
+	o->geo_number=stand;
 	o->posx = (o->posx + o->dirx);
 	draw_object(o);
 	clear_object(o);
-	o->geo_number=stand;
+	o->geo_number=run;
+	o->posx = (o->posx + o->dirx);
+	draw_object(o);
+} 
+void move_damsugare (POBJECT o){
+	
+	clear_object(o);
 	o->posx = (o->posx + o->dirx);
 	draw_object(o);
 } 

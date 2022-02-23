@@ -17,6 +17,8 @@ void set_object_speed (POBJECT o, int speedx, int speedy);
 
 int exact_objects_overlap (POBJECT o1, POBJECT o2);
 
+void move_damsugare (POBJECT o);
+
 
 void graphic_initialize(void);
 

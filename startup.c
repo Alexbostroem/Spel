@@ -33,20 +33,20 @@ void main(void)
 	POBJECT m =&mouse;
 	POBJECT k =&cat;	
 	POBJECT b =&bird;
+	POBJECT d =&damsugare;
+	
 	
 	graphic_initialize();
 	graphic_clear_screen();
 	while(1)
 			{
-				if(b->posx > 10){
-				m->move(m);}
-				else {
 				
-				}
+				d->move(d);
 				k->move(k);
 				b->move(b);
+				m->move(m);
 				delay_micro(200);
-				
+			}
 }
-}
+
 

@@ -19,6 +19,7 @@ int exact_objects_overlap (POBJECT o1, POBJECT o2);
 
 void move_damsugare (POBJECT o);
 
+void clear_all_geo (POBJECT o);
 
 void graphic_initialize(void);
 

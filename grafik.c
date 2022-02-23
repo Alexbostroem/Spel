@@ -345,10 +345,11 @@ GEOMETRY damsugare_geometry =
 		&cat_duck_geometry,
 		0,
 		0,0,
-		5,30,
+		5,START_POS_CAT,
 		draw_object,
 		clear_object,
 		move_catobject,
+		clear_all_geo,
 		set_object_speed,
 	};
 	
@@ -365,6 +366,7 @@ OBJECT mouse =
 		draw_object,
 		clear_object,
 		move_mouseobject,
+		clear_all_geo,
 		set_object_speed,
 	};
 	
@@ -381,6 +383,7 @@ OBJECT bird =
 		draw_object,
 		clear_object,
 		move_mouseobject,
+		clear_all_geo,
 		set_object_speed,
 	};
 
@@ -397,5 +400,6 @@ OBJECT damsugare =
 		draw_object,
 		clear_object,
 		move_damsugare,
+		clear_all_geo,
 		set_object_speed,
 	};

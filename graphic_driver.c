@@ -88,12 +88,12 @@ void move_mouseobject (POBJECT o){
 	
 	clear_object(o);
 	o->geo_number=run;
-	draw_object(o);
 	o->posx = (o->posx + o->dirx);
+	draw_object(o);
 	clear_object(o);
 	o->geo_number=stand;
-	draw_object(o);
 	o->posx = (o->posx + o->dirx);
+	draw_object(o);
 } 
 
 void move_jump_catobject (POBJECT o){

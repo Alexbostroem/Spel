@@ -395,7 +395,7 @@ OBJECT damsugare =
 		&cat_jump_geometry,
 		&cat_duck_geometry,
 		0,
-		-3,0,
+		-7,0,
 		95,40,
 		draw_object,
 		clear_object,

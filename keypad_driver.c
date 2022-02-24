@@ -16,6 +16,7 @@ void ActivateRow( unsigned int row ) {
 	}
 }
 
+
 int ReadColumn( void )
 { 
 unsigned char c;
@@ -60,4 +61,33 @@ unsigned char keyb_enhanced(void)
 		
 		ActivateRow(0);
 		return 0xFF;
+}
+/*
+void ActivateRow (unsigned int row){
+	switch (row) 
+	{ 
+	case 1: *GPIO_ODR_HIGH = 0x10; break;
+	case 2: *GPIO_ODR_HIGH = 0x20; break;
+	case 3: *GPIO_ODR_HIGH = 0x40; break;
+	case 4: *GPIO_ODR_HIGH = 0x80; break;
+	case 0: *GPIO_ODR_HIGH = 0x00; break;
+	}
+	
+}
+*/
+
+unsigned char keyb(void)
+{	
+	unsigned char key []={1,2,3,0xA,4,5,6,0xB,7,8,9,0xC,0xD,0,0xF,0xD};
+	int row,col;
+	for (row=1; row<=4;row++){
+	ActivateRow (row);
+	if ((col=ReadColumn())){
+		ActivateRow(0);
+		return key [4*(row-1)+(col-1)];
+		}
+	}
+	ActivateRow(0);
+	
+	return 0xFF;
 }

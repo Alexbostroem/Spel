@@ -8,8 +8,6 @@ void keyboard_init(void) {
 	*GPIO_D_PUPDR |= 0x00AA0000;
 }
 
-
-
 void app_init(void) {
 	keyboard_init();
 }

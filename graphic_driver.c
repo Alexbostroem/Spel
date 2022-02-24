@@ -74,16 +74,51 @@ void clear_object (POBJECT o){
 	}
 }
 
+void clear_all_geo (POBJECT o){
+		o->geo_number=run;
+		clear_object(o);
+		o->geo_number=stand;
+		clear_object(o);
+		o->geo_number=duck;
+		clear_object(o);
+		o->geo_number=jump;
+		clear_object(o);
+}
 
 
 void move_catobject (POBJECT o){
-	
-	clear_object(o);
+	if (o->geo_number==jump){
+		clear_all_geo(o);
+		o->geo_number=jump;
+		if(o->posy<=1){
+			o->posy=0;
+		}
+		o->posy =(o->posy + o->diry);
+		draw_object(o);
+	}
+	else if (o->geo_number==duck){
+		clear_all_geo(o);
+		o->geo_number=duck;
+		o->posy=-5; 
+		draw_object(o);
+	}
+	else if (o->posy < START_POS_CAT & o->geo_number!=jump ){
+		clear_object(o);
+		o->posy = (o->posy + (-1*o->diry));
+		draw_object(o); 
+	}
+	else if (o->posy > START_POS_CAT & o->geo_number!=duck){
+		o->posy=START_POS_CAT;
+	}
+	else {
+	o->diry=0;
+	clear_all_geo(o);
 	o->geo_number=run;
 	draw_object(o);
 	clear_object(o);
 	o->geo_number=stand;
 	draw_object(o);
+	}
 } 
 
 void move_mouseobject (POBJECT o){
@@ -104,15 +139,6 @@ void move_damsugare (POBJECT o){
 	draw_object(o);
 } 
 
-void move_jump_catobject (POBJECT o){
-	clear_object(o);
-	o->geo_number=jump;
-	o->posy=(o->posy+o->diry);
-	if (hits_roof){
-		o->diry=0;
-	}
-	draw_object(o);
-}	
 
 void move_duck_catobject (POBJECT o){
 	clear_object(o);

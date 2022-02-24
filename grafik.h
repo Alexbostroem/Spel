@@ -23,6 +23,7 @@ typedef struct Obj{
 	void (* draw) (struct Obj*);
 	void (* clear) (struct Obj*);
 	void (* move) (struct Obj*);
+	void (* clear_all) (struct Obj*);
 	void (* set_speed) (struct Obj*, int, int);
 } OBJECT, *POBJECT;
 

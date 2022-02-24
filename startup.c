@@ -25,6 +25,7 @@ __asm__ volatile(".L1: B .L1\n");				/* never return */
 #include "grafik.h"
 #include "graphic_driver.h"
 #include "init.h"
+#include "keypad_driver.h"
 
 
 void main(void)
@@ -34,15 +35,47 @@ void main(void)
 	POBJECT d =&damsugare;
 	POBJECT k =&cat;	
 	POBJECT b =&bird;
-	POBJECT current;
-	app_init();
-   
-	current = d;
+
+
+
+	POBJECT d =&damsugare;
 	
-	while(1)
+	
+	graphic_initialize();
+	graphic_clear_screen();
+	char c;
+	int points;
+
+    while(1){
+		
+		if (points> 20){
+			m->set_speed(m,0,-10);
+			b->set_speed(b,0,-10);
+		}
+		
+			m->move(m);
+			k->move(k);
+			//d->move(d);
+			//b->move(b);
+			c = keyb();
+			switch(c)
 			{
-				move_catobject(k);
-				delay_micro(200);
+			case 2: k->geo_number = jump; k->set_speed(k,0,-6); break;
+			case 8: k->geo_number = duck; break;
+			default: k->geo_number = run; break;
+			}
+		delay_micro(200);
+		
+		if ((k->posx + 30) > m->posx & k->geo_number==duck){
+					//if (exact_objects_overlap(m,k)){
+					//delay_micro(500);
+					m->clear_all(m);
+					m->posx = 130;
+					//}
+		}
+	}
+
 }
-}
+
+
 

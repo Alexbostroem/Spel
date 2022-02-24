@@ -30,10 +30,14 @@ __asm__ volatile(".L1: B .L1\n");				/* never return */
 
 void main(void)
 {
-	app_init();
+	
 	POBJECT m =&mouse;
+	POBJECT d =&damsugare;
 	POBJECT k =&cat;	
 	POBJECT b =&bird;
+
+
+
 	POBJECT d =&damsugare;
 	
 	
@@ -70,6 +74,7 @@ void main(void)
 					//}
 		}
 	}
+
 }
 
 

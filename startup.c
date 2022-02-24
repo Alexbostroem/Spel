@@ -26,6 +26,7 @@ __asm__ volatile(".L1: B .L1\n");				/* never return */
 #include "graphic_driver.h"
 #include "init.h"
 #include "keypad_driver.h"
+#include "pointordeath_function.h"
 
 
 void main(void)
@@ -52,8 +53,8 @@ void main(void)
 		
 			m->move(m);
 			k->move(k);
-			//d->move(d);
-			//b->move(b);
+			d->move(d);
+			b->move(b);
 			c = keyb();
 			switch(c)
 			{
@@ -61,14 +62,25 @@ void main(void)
 			case 8: k->geo_number = duck; break;
 			default: k->geo_number = run; break;
 			}
-		delay_micro(200);
+	
 		
-		if ((k->posx + 30) > m->posx & k->geo_number==duck){
-					//if (exact_objects_overlap(m,k)){
-					//delay_micro(500);
+		if (approx(k,m) & k->geo_number==duck){
+					if (exact_objects_overlap(k,m)){
 					m->clear_all(m);
 					m->posx = 130;
-					//}
+					}
+		}
+		if (approx(k,b) & k->geo_number==jump){
+					if (exact_objects_overlap(k,b)){
+					b->clear_all(b);
+					b->posx = 130;
+					}
+		}
+		if (approx(k,d)){
+					if (exact_objects_overlap(k,d)){
+					k->clear_all(k);
+					k->posx = 140;
+					}
 		}
 	}
 

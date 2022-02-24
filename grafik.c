@@ -1,4 +1,3 @@
-
 #include "define_global.h"
 #include "grafik.h"
 #include "graphic_driver.h"
@@ -362,8 +361,8 @@ OBJECT mouse =
 		&cat_jump_geometry,
 		&cat_duck_geometry,
 		0,
-		-3,0,
-		129,50,
+		-2,0,
+		140,50,
 		draw_object,
 		clear_object,
 		move_mouseobject,
@@ -379,7 +378,7 @@ OBJECT bird =
 		&cat_jump_geometry,
 		&cat_duck_geometry,
 		0,
-		-3,0,
+		-5,0,
 		129,10,
 		draw_object,
 		clear_object,

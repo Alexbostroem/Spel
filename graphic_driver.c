@@ -29,50 +29,43 @@ __asm volatile(" BX LR\n");
 
 
 void draw_object (POBJECT o){
+	GEOMETRY *mygeo;
 	if (o->geo_number == stand){
-		for ( int i=0; i <= (o->geo_stand->numpoints-1); i++){
-		graphic_pixel_set( (o->geo_stand->px[i].x + o->posx), (o->geo_stand->px[i].y + o->posy));
-		}
+	mygeo= o->geo_stand;
 	}
 	else if (o->geo_number==run){
-		for ( int i=0; i <= (o->geo_run->numpoints-1); i++){
-		graphic_pixel_set( (o->geo_run->px[i].x + o->posx), (o->geo_run->px[i].y + o->posy));
-		}
+	mygeo= o->geo_run;
 	}
 	else if (o->geo_number==jump){
-		for ( int i=0; i <= (o->geo_jump->numpoints-1); i++){
-		graphic_pixel_set( (o->geo_jump->px[i].x + o->posx), (o->geo_jump->px[i].y + o->posy));
-		}
+	mygeo= o->geo_jump;
 	}
 	else if (o->geo_number==duck){
-		for ( int i=0; i <= (o->geo_duck->numpoints-1); i++){
-		graphic_pixel_set( (o->geo_duck->px[i].x + o->posx), (o->geo_duck->px[i].y + o->posy));
-		}
+		mygeo= o->geo_duck;
 	}
+		for ( int i=0; i <= (mygeo->numpoints-1); i++){
+		graphic_pixel_set( (mygeo->px[i].x + o->posx), (mygeo->px[i].y + o->posy));
+		}
 }
-
+	
 void clear_object (POBJECT o){
-	if (o->geo_number==stand){
-		for ( int i=0; i <= (o->geo_stand->numpoints-1); i++){
-		graphic_pixel_clear( (o->geo_stand->px[i].x + o->posx), (o->geo_stand->px[i].y + o->posy));
-		}
+		GEOMETRY *mygeo;
+	if (o->geo_number == stand){
+	mygeo= o->geo_stand;
 	}
 	else if (o->geo_number==run){
-		for ( int i=0; i <= (o->geo_run->numpoints-1); i++){
-		graphic_pixel_clear( (o->geo_run->px[i].x + o->posx), (o->geo_run->px[i].y + o->posy));
-		}
+	mygeo= o->geo_run;
 	}
 	else if (o->geo_number==jump){
-		for ( int i=0; i <= (o->geo_jump->numpoints-1); i++){
-		graphic_pixel_clear( (o->geo_jump->px[i].x + o->posx), (o->geo_jump->px[i].y + o->posy));
-		}
+	mygeo= o->geo_jump;
 	}
 	else if (o->geo_number==duck){
-		for ( int i=0; i <= (o->geo_duck->numpoints-1); i++){
-		graphic_pixel_clear( (o->geo_duck->px[i].x + o->posx), (o->geo_duck->px[i].y + o->posy));
-		}
+		mygeo= o->geo_duck;
+	}
+		for ( int i=0; i <= (mygeo->numpoints-1); i++){
+		graphic_pixel_clear( (mygeo->px[i].x + o->posx), (mygeo->px[i].y + o->posy));
 	}
 }
+	
 
 void clear_all_geo (POBJECT o){
 		o->geo_number=run;
@@ -96,19 +89,25 @@ void move_catobject (POBJECT o){
 		o->posy =(o->posy + o->diry);
 		draw_object(o);
 	}
-	else if (o->geo_number==duck){
+	else if (o->geo_number==duck & o->posy >= START_POS_CAT){
 		clear_all_geo(o);
 		o->geo_number=duck;
-		o->posy=-5; 
+		o->posy= (START_POS_CAT + 5); 
 		draw_object(o);
 	}
 	else if (o->posy < START_POS_CAT & o->geo_number!=jump ){
+		o->geo_number=jump;
 		clear_object(o);
 		o->posy = (o->posy + (-1*o->diry));
 		draw_object(o); 
 	}
 	else if (o->posy > START_POS_CAT & o->geo_number!=duck){
+		o->geo_number=duck;
+		clear_object(o);
 		o->posy=START_POS_CAT;
+		o->geo_number=stand;
+		draw_object(o); 
+		
 	}
 	else {
 	o->diry=0;
@@ -138,22 +137,6 @@ void move_damsugare (POBJECT o){
 	o->posx = (o->posx + o->dirx);
 	draw_object(o);
 } 
-
-
-void move_duck_catobject (POBJECT o){
-	clear_object(o);
-	o->geo_number=duck;
-	draw_object(o);
-}
-
-int hits_roof(POBJECT o){
-	 if (o->posx < 1){
-		return 1;
-	}
-	else {
-		return 0;
-	}
-}
 
 void set_object_speed (POBJECT o, int speedx, int speedy)
 {

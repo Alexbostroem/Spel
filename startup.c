@@ -47,6 +47,7 @@ void main(void)
 		if (points> 20){
 			m->set_speed(m,0,-10);
 			b->set_speed(b,0,-10);
+
 		}
 		
 			m->move(m);

@@ -1,4 +1,5 @@
 #include "define_global.h"
+#include "keypad_driver.h"
 
 //GLOBAL
 int keyb_state = 0;

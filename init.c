@@ -1,4 +1,9 @@
 #include "define_global.h"
+#include "ascii_display.h"
+#include "grafik.h"
+#include "graphic_driver.h"
+#include "init.h"
+#include "keypad_driver.h"
 
 void keyboard_init(void) {
 	*GPIO_D_MODER &= 0x00000000; 
@@ -8,6 +13,12 @@ void keyboard_init(void) {
 	*GPIO_D_PUPDR |= 0x00AA0000;
 }
 
+void display_init(void) {
+	graphic_initialize();
+	graphic_clear_screen();
+}
+
 void app_init(void) {
 	keyboard_init();
+	display_init();
 }

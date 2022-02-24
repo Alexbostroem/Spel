@@ -1,6 +1,7 @@
 #include "define_global.h"
 #include "grafik.h"
 #include "graphic_driver.h"
+#include "init.h"
 
 __attribute__((naked))
 void graphic_initialize (void)

@@ -131,12 +131,21 @@ void move_mouseobject (POBJECT o){
 	o->geo_number=run;
 	o->posx = (o->posx + o->dirx);
 	draw_object(o);
+	if
+	(o->posx + 40 < 1){
+		o->posx= (128);
+	}
+
 } 
 void move_damsugare (POBJECT o){
 	
 	clear_object(o);
 	o->posx = (o->posx + o->dirx);
 	draw_object(o);
+	if
+	(o->posx + 40 < 1){
+		o->posx= (128);
+	}
 } 
 
 void set_object_speed (POBJECT o, int speedx, int speedy)
@@ -145,20 +154,6 @@ o->dirx=speedx;
 o->diry=speedy;
 }
 
-int exact_objects_overlap (POBJECT o1, POBJECT o2){
-  int offset1x = o1->posx;
-  int offset1y = o1->posy;
-  int offset2x = o2->posx;
-  int offset2y = o2->posy;
-  /*
-  for (int i = 0; i < o1->geo->numpoints; i++) {
-    for (int j = 0; j < o2-> geo->numpoints; j++)
-      if ((offset1x + o1->geo->px[i].x == offset2x + o2->geo->px[j].x) &&
-        (offset1y + o1->geo->px[i].y == offset2y + o2->geo->px[j].y)) 
-		return 1;
-  }
-   * */
-  return 0;
-}
+
 
 

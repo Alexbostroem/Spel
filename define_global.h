@@ -33,7 +33,7 @@
 #define B_RS 0x01
 
 #define MAX_POINTS 1300
-
+#define START_POS_CAT 30
 
 
 

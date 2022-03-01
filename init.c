@@ -1,9 +1,11 @@
+#include "startup.h"
 #include "define_global.h"
 #include "ascii_display.h"
 #include "grafik.h"
 #include "graphic_driver.h"
 #include "init.h"
 #include "keypad_driver.h"
+#include "pointordeath_function.h"
 #include "irq_handler.h"
 
 void keyboard_init(void) {
@@ -24,9 +26,10 @@ void start_ascii(void) {
 	char ascii_start[] = "Points: "; // ska alltid skrivas vid start av spelet (endast 1 gång)
 	ascii_gotoxy(1,1);		// gå till rad 1, col 1
     startword = ascii_start;
-	 while (*startword) {
-    	ascii_write_char(*startword++);
+	while (*startword) {
+	ascii_write_char(*startword++);
     }
+	ascii_gotoxy(9,1);		// gå till col 9 rad 1 på asciidisplayen
 	 
 }
 
@@ -47,4 +50,5 @@ void app_init(void) {
 	display_init();
 	init_app_ascii();
 	irq_handler_int();
+	//*RCC_AHB1ENR = 0x18;
 }

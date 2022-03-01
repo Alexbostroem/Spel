@@ -19,7 +19,8 @@ __asm__ volatile(".L1: B .L1\n");				/* never return */
  * 	kolla sedan om någon av objektets y-koordinater är samma som någon av kattis y-koordinater.
  * 	
  * */
-
+ 
+#include "startup.h"
 #include "define_global.h"
 #include "ascii_display.h"
 #include "grafik.h"
@@ -27,6 +28,11 @@ __asm__ volatile(".L1: B .L1\n");				/* never return */
 #include "init.h"
 #include "keypad_driver.h"
 #include "pointordeath_function.h"
+#include "irq_handler.h"
+
+
+char ascii_points[] = {0x30,'\0'};  
+char ascii_GO[] = "GAME OVER! ";
 
 
 
@@ -34,14 +40,11 @@ void main(void)
 {
 	app_init();
 	char *out_ascii;	// Pekare till den array som ska skrivas till asciidisplay
-	char ascii_points[] = {0x30,'\0'};    // Aktuell poäng, uppdateras under spelets gång
-	char ascii_GO[] = "GAME OVER! ";
-	ascii_gotoxy(9,1);		// gå till col 9 rad 1 på asciidisplayen
 	out_ascii = ascii_points;
-	
 	 while (*out_ascii) {
     	ascii_write_char(*out_ascii++);
     }
+	
 	// Ovan går att lägga i start_ascii. Är nollan vid start som skrivs ut efter "Points: "
 	
 	POBJECT m =&mouse;
@@ -52,7 +55,7 @@ void main(void)
 	int write_counter_b = 0;
 	char c;
 
-
+    set_clock();
     while(1){
 		
 		if (ascii_points[0] >= 0x35){	// ascii_points[0] är nya points!!
@@ -81,12 +84,7 @@ void main(void)
 					
 					// EN POÄNG FÖR MUSEN
 					ascii_points[0]++;
-					ascii_gotoxy(9,1);
-					out_ascii = ascii_points;
-					while (*out_ascii) {
-						ascii_write_char(*out_ascii++);
-					}
-				}
+				
 		//}
 		if (approx(k,b) & k->geo_number==jump){
 					//if (exact_objects_overlap(k,b)){
@@ -96,12 +94,7 @@ void main(void)
 					
 					// TVÅ POÄNG FÖR FÅGEL
 					ascii_points[0] += 2;
-					ascii_gotoxy(9,1);
-					out_ascii = ascii_points;
-					while (*out_ascii) {
-						ascii_write_char(*out_ascii++);
-					}
-				}
+				
 		//}
 		if (approx(k,d)){
 					//if (exact_objects_overlap(k,d)){
@@ -115,11 +108,11 @@ void main(void)
 						ascii_write_char(*out_ascii++);
 					}
 					
-					//}
+				}
 		}
 	}
 	
+ }
 }
-
 
 

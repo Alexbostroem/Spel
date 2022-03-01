@@ -1,5 +1,12 @@
+#include "startup.h"
 #include "define_global.h"
+#include "ascii_display.h"
+#include "grafik.h"
+#include "graphic_driver.h"
+#include "init.h"
 #include "keypad_driver.h"
+#include "pointordeath_function.h"
+#include "irq_handler.h"
 
 //GLOBAL
 int keyb_state = 0;

@@ -1,7 +1,12 @@
+#include "startup.h"
 #include "define_global.h"
+#include "ascii_display.h"
 #include "grafik.h"
 #include "graphic_driver.h"
 #include "init.h"
+#include "keypad_driver.h"
+#include "pointordeath_function.h"
+#include "irq_handler.h"
 
 __attribute__((naked))
 void graphic_initialize (void)

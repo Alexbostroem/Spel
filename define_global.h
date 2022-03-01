@@ -26,6 +26,8 @@
 #define GPIO_E_OSPEEDER ((volatile unsigned int *) GPIO_E_BASE + 0x8)
 #define GPIO_E_PUPDR ((volatile unsigned int *) GPIO_E_BASE + 0xC)
 
+#define RCC_AHB1ENR (( unsigned long *) 0x40023830)
+
 // ASCII DISPLAY
 #define B_E 0x40
 #define B_SELECT 0x04

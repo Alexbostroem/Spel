@@ -1,3 +1,4 @@
+#include "startup.h"
 #include "define_global.h"
 #include "ascii_display.h"
 #include "grafik.h"
@@ -5,6 +6,7 @@
 #include "init.h"
 #include "keypad_driver.h"
 #include "pointordeath_function.h"
+#include "irq_handler.h"
 
 int approx( POBJECT o1, POBJECT o2 ) {
   GEOMETRY *catgeo;

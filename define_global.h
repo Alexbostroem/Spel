@@ -35,8 +35,12 @@
 #define MAX_POINTS 1300
 #define START_POS_CAT 30
 
-
-
 //ENUMS
 enum geometri_cat {stand,run,jump,duck};
+
+//IRQ
+#define SCB_VTOR (volatile unsigned long*) 0xE000ED08
+#define VTOR 0x2001C000
+#define SYSTICK_IRQ (0x2001C000 + 0x0000003C)
+
 

@@ -28,22 +28,11 @@ __asm__ volatile(".L1: B .L1\n");				/* never return */
 #include "keypad_driver.h"
 #include "pointordeath_function.h"
 
-void start_ascii(void) {
-	char *startword;
-	char ascii_start[] = "Points: "; // ska alltid skrivas vid start av spelet (endast 1 gång)
-	ascii_gotoxy(1,1);		// gå till rad 1, col 1
-    startword = ascii_start;
-	 while (*startword) {
-    	ascii_write_char(*startword++);
-    }
-	 
-}
+
 
 void main(void)
 {
 	app_init();
-	start_ascii(); // Skriver ut "Points: "
-	
 	char *out_ascii;	// Pekare till den array som ska skrivas till asciidisplay
 	char ascii_points[] = {0x30,'\0'};    // Aktuell poäng, uppdateras under spelets gång
 	char ascii_GO[] = "GAME OVER! ";

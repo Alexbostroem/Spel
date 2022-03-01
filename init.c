@@ -18,7 +18,13 @@ void display_init(void) {
 	graphic_clear_screen();
 }
 
+void init_app_ascii(void) {
+	*GPIO_E_MODER = 0x55555555;	// Sätt portE pin 0-15 som utgångar
+    ascii_init();
+}
+
 void app_init(void) {
 	keyboard_init();
 	display_init();
+	init_app_ascii();
 }

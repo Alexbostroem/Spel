@@ -12,11 +12,9 @@ __asm__ volatile(".L1: B .L1\n");				/* never return */
 }
 
 /*	SPELREGLER KATTIS
- * 	1. Katten rör sig endast i y-led. Ducka för att äta mus(1p), hoppa för att äta fågel(2p), hoppa över dammsugare(game over).
+ * 	1. Katten rör sig endast i y-led. Ducka för att äta mus(1p), hoppa för att äta fågel(2p), hoppa över dammsugare annars game over.
  * 	2. Poängen står i ascii-displayen. Står "game over" om dammsugaren fångar Kattis.
- * 	3. Undersök om ett objekt (mus,fågel,dammsugare) är i kontakt med Kattis genom att först kolla så de är på samma
- * 	x-koordinat. If ((kattis->posx + kattis->size->x) == objekt->posx)
- * 	kolla sedan om någon av objektets y-koordinater är samma som någon av kattis y-koordinater.
+ * 	3. Vid 10 poäng vinner man spelet och ascii-displayn skriver ut "you win"
  * 	
  * */
 
@@ -47,26 +45,24 @@ void main(void)
 	char *out_ascii;	// Pekare till den array som ska skrivas till asciidisplay
 	char ascii_points[] = {0x30,'\0'};    // Aktuell poäng, uppdateras under spelets gång
 	char ascii_GO[] = "GAME OVER! ";
+	char ascii_WIN[] = "YOU WIN! ";
 	ascii_gotoxy(9,1);		// gå till col 9 rad 1 på asciidisplayen
 	out_ascii = ascii_points;
 	
 	 while (*out_ascii) {
     	ascii_write_char(*out_ascii++);
     }
-	// Ovan går att lägga i start_ascii. Är nollan vid start som skrivs ut efter "Points: "
 	
 	POBJECT m =&mouse;
 	POBJECT d =&damsugare;
 	POBJECT k =&cat;	
 	POBJECT b =&bird;
-	int write_counter_m = 0;
-	int write_counter_b = 0;
 	char c;
 
 
     while(1){
 		
-		if (ascii_points[0] >= 0x35){	// ascii_points[0] är nya points!!
+		if (ascii_points[0] >= 0x35){
 			m->set_speed(m,-10,0);
 			b->set_speed(b,-10,0);
 
@@ -77,18 +73,18 @@ void main(void)
 			d->move(d);
 			b->move(b);
 			c = keyb();
+			k->prev_geo = k->geo_number;
 			switch(c)
 			{
-			case 2: k->geo_number = jump; k->set_speed(k,0,-6); break;
+			case 2: k->geo_number; k->geo_number = jump; k->set_speed(k,0,-6); break;
 			case 8: k->geo_number = duck; break;
 			default: k->geo_number = run; break;
 			}
 	
 		
 		if (approx(k,m) & k->geo_number==duck){
-					//if (exact_objects_overlap(k,m)){
 					m->clear_all(m);
-					m->posx = 130;
+					m->posx = 127;
 					
 					// EN POÄNG FÖR MUSEN
 					ascii_points[0]++;
@@ -98,12 +94,11 @@ void main(void)
 						ascii_write_char(*out_ascii++);
 					}
 				}
-		//}
+				
 		if (approx(k,b) & k->geo_number==jump){
-					//if (exact_objects_overlap(k,b)){
-					
-					b->clear_all(b);
-					b->posx = 130;
+				
+					b->clear_all(b); 
+					b->posx = 127;
 					
 					// TVÅ POÄNG FÖR FÅGEL
 					ascii_points[0] += 2;
@@ -113,9 +108,7 @@ void main(void)
 						ascii_write_char(*out_ascii++);
 					}
 				}
-		//}
 		if (approx(k,d)){
-					//if (exact_objects_overlap(k,d)){
 					k->clear_all(k);
 					k->posx = 140;
 					
@@ -125,10 +118,21 @@ void main(void)
 					while (*out_ascii) {
 						ascii_write_char(*out_ascii++);
 					}
-					
-					//}
 		}
+	if (ascii_points [0]>'9'){
+		m->clear_all(m);
+		d->clear_all(d);
+		b->clear_all(b);
+		
+		ascii_gotoxy(1,1);
+					out_ascii = ascii_WIN;
+					while (*out_ascii) {
+						ascii_write_char(*out_ascii++);
+					}
+	break;
 	}
+
+}
 	
 }
 

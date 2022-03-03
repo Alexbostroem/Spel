@@ -21,6 +21,8 @@ void move_damsugare (POBJECT o);
 
 void clear_all_geo (POBJECT o);
 
+void clear_prev_object (POBJECT o);
+
 void graphic_initialize(void);
 
 void graphic_clear_screen(void);

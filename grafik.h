@@ -19,6 +19,7 @@ typedef struct Obj{
 	PGEOMETRY geo_jump;
 	PGEOMETRY geo_duck;
 	int geo_number;
+	int prev_geo;
 	int dirx, diry;
 	int posx, posy;
 	void (* draw) (struct Obj*);
